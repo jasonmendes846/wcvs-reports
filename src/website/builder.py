@@ -91,6 +91,10 @@ class WebsiteBuilder:
     def _build_report_pages(self) -> None:
         template = self.env.get_template("report_page.html.j2")
         reports_out = self.output_dir / "reports"
+        # Clean old report output to prevent stale artifacts
+        if reports_out.exists():
+            import shutil
+            shutil.rmtree(reports_out)
         reports_out.mkdir(parents=True, exist_ok=True)
         for i, report in enumerate(self.reports):
             prev_report = self.reports[i + 1] if i + 1 < len(self.reports) else None
@@ -138,7 +142,7 @@ class WebsiteBuilder:
                 pdf_path = pdf_candidates[0]
             if pdf_path:
                 # Normalize name for website link consistency
-                dest_name = f"wcvs-report-{date}-full.pdf"
+                dest_name = f"wcvs-report-{date}.pdf"
                 shutil.copy2(pdf_path, out_dir / dest_name)
         print(f"[Website] {len(self.reports)} report pages written.")
 

@@ -37,7 +37,7 @@
         <td>{{ report.categories[2].raw_score if report.categories else '—' }}</td>
         <td>{{ report.categories[3].raw_score if report.categories else '—' }}</td>
         <td>{{ report.categories[4].raw_score if report.categories else '—' }}</td>
-        <td><a href="{{ base_path }}/reports/{{ report.date }}/wcvs-report-{{ report.date }}-full.pdf" target="_blank">PDF</a></td>
+        <td><a href="{{ base_path }}/reports/{{ report.date }}/wcvs-report-{{ report.date }}.pdf" target="_blank">PDF</a></td>
       </tr>
       {% endfor %}
     </tbody>
