@@ -1,0 +1,204 @@
+/* WCVS Report Styles — Institutional Light A4
+   Matches the 2026-05-10 reference PDF exactly.
+   Derived from compact.css with Liberation Sans font.
+*/
+
+@page {
+  size: A4;
+  margin: 0.5cm 0.7cm;
+}
+
+/* ─── Base ─── */
+body {
+  font-family: "Liberation Sans", Arial, sans-serif;
+  font-size: 7pt;
+  line-height: 1.2;
+  color: #1a1a1a;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Headings ─── */
+h1 {
+  font-size: 10pt;
+  font-weight: 800;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1.5px solid #1a3a5c;
+  padding-bottom: 3px;
+  margin: 0 0 4px 0;
+}
+
+h2 {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 6px 0 3px 0;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ddd;
+}
+
+h3 {
+  font-size: 7pt;
+  font-weight: 700;
+  color: #333;
+  margin: 3px 0 2px 0;
+}
+
+h4 {
+  font-size: 6.5pt;
+  font-weight: 700;
+  color: #444;
+  margin: 2px 0 1px 0;
+}
+
+/* ─── Paragraphs & inline ─── */
+p {
+  margin: 2px 0;
+  color: #1a1a1a;
+}
+
+strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+em {
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+a {
+  color: #1a3a5c;
+  text-decoration: none;
+}
+
+/* ─── Horizontal rule ─── */
+hr {
+  border: none;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 3px 0;
+}
+
+/* ─── Tables ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 6pt;
+  margin: 2px 0;
+}
+
+th {
+  background: #1a3a5c;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 2px 4px;
+  border: none;
+  font-size: 5.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 2px 4px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  color: #1a1a1a;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td strong {
+  font-weight: 700;
+}
+
+/* ─── Lists ─── */
+ul, ol {
+  margin: 2px 0;
+  padding-left: 10px;
+}
+
+li {
+  margin: 1px 0;
+  color: #1a1a1a;
+}
+
+li::marker {
+  color: #1a3a5c;
+}
+
+/* ─── Blockquote ─── */
+blockquote {
+  margin: 6px 0;
+  padding: 6px 10px;
+  background: #f8f9fa;
+  border-left: 2px solid #1a3a5c;
+  color: #555;
+  font-size: 6.5pt;
+}
+
+blockquote p {
+  margin: 0;
+  color: #555;
+}
+
+/* ─── Code / pre ─── */
+code {
+  font-family: "Liberation Sans", "SF Mono", Consolas, Monaco, monospace;
+  font-size: 6pt;
+  background: #f0f2f5;
+  padding: 1px 3px;
+  border-radius: 2px;
+  color: #1a3a5c;
+}
+
+pre {
+  background: #f0f2f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 8px;
+  overflow-x: auto;
+  font-family: "Liberation Sans", "SF Mono", Consolas, Monaco, monospace;
+  font-size: 6pt;
+  line-height: 1.3;
+  color: #444;
+  margin: 4px 0;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: #444;
+}
+
+/* ─── Footer ─── */
+.footer {
+  margin-top: 4px;
+  padding-top: 3px;
+  border-top: 1px solid #ddd;
+  font-size: 5.5pt;
+  color: #999;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ─── Print color-adjust ─── */
+@media print {
+  body {
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  table, th, td, h1, h2, h3, blockquote, pre {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -6,18 +6,18 @@
     <div class="hero-meta">Latest Report — {{ latest.date if latest else 'N/A' }}</div>
     <div class="hero-score-display">{{ latest.composite_score if latest else '—' }}</div>
     <div class="hero-rating {{ latest.rating_class if latest else '' }}">{{ latest.rating_text if latest else 'No Data' }}</div>
-    <div class="hero-sp500">S&P 500: {{ "{:,}".format(latest.sp500_price|int) if latest else '—' }}</div>
+    <div class="hero-sp500">S&P 500: <strong>{{ "{:,}".format(latest.sp500_price|int) if latest else '—' }}</strong></div>
     <a class="hero-cta" href="{{ base_path }}/reports/{{ latest.date }}/index.html" {% if not latest %}style="display:none"{% endif %}>Read Full Report →</a>
   </div>
   <div class="sparkline-card">
     <h3>30-Day Score History</h3>
-    <canvas id="sparkline" height="120"></canvas>
+    <canvas id="sparkline" height="160"></canvas>
   </div>
 </section>
 
 <section class="quick-stats">
   <div class="stat-box">
-    <div class="stat-label">Reports</div>
+    <div class="stat-label">Reports Generated</div>
     <div class="stat-value">{{ report_count }}</div>
   </div>
   <div class="stat-box">
@@ -43,7 +43,7 @@
 <section class="recent-reports">
   <h2>Recent Reports</h2>
   <div class="report-grid">
-    {% for report in reports[:7] %}
+    {% for report in reports[:8] %}
     <a class="report-tile" href="{{ base_path }}/reports/{{ report.date }}/index.html">
       <div class="tile-date">{{ report.date }}</div>
       <div class="tile-score">{{ report.composite_score }}</div>
@@ -51,7 +51,7 @@
     </a>
     {% endfor %}
   </div>
-  <p class="archive-link"><a href="/archive/index.html">View all reports →</a></p>
+  <p class="archive-link"><a href="{{ base_path }}/archive/index.html">View all reports →</a></p>
 </section>
 {% endblock %}
 {% block scripts %}

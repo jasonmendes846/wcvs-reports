@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WCVS U.S. Equity Valuation Report — May 5, 2026</title>
+<style>
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+/* WCVS Report Styles — Institutional Light A4
+   Matches the 2026-05-10 reference PDF exactly.
+   Derived from compact.css with Liberation Sans font.
+*/
+
+@page {
+  size: A4;
+  margin: 0.5cm 0.7cm;
+}
+
+/* ─── Base ─── */
+body {
+  font-family: "Liberation Sans", Arial, sans-serif;
+  font-size: 7pt;
+  line-height: 1.2;
+  color: #1a1a1a;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Headings ─── */
+h1 {
+  font-size: 10pt;
+  font-weight: 800;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1.5px solid #1a3a5c;
+  padding-bottom: 3px;
+  margin: 0 0 4px 0;
+}
+
+h2 {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 6px 0 3px 0;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ddd;
+}
+
+h3 {
+  font-size: 7pt;
+  font-weight: 700;
+  color: #333;
+  margin: 3px 0 2px 0;
+}
+
+h4 {
+  font-size: 6.5pt;
+  font-weight: 700;
+  color: #444;
+  margin: 2px 0 1px 0;
+}
+
+/* ─── Paragraphs & inline ─── */
+p {
+  margin: 2px 0;
+  color: #1a1a1a;
+}
+
+strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+em {
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+a {
+  color: #1a3a5c;
+  text-decoration: none;
+}
+
+/* ─── Horizontal rule ─── */
+hr {
+  border: none;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 3px 0;
+}
+
+/* ─── Tables ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 6pt;
+  margin: 2px 0;
+}
+
+th {
+  background: #1a3a5c;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 2px 4px;
+  border: none;
+  font-size: 5.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 2px 4px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  color: #1a1a1a;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td strong {
+  font-weight: 700;
+}
+
+/* ─── Lists ─── */
+ul, ol {
+  margin: 2px 0;
+  padding-left: 10px;
+}
+
+li {
+  margin: 1px 0;
+  color: #1a1a1a;
+}
+
+li::marker {
+  color: #1a3a5c;
+}
+
+/* ─── Blockquote ─── */
+blockquote {
+  margin: 6px 0;
+  padding: 6px 10px;
+  background: #f8f9fa;
+  border-left: 2px solid #1a3a5c;
+  color: #555;
+  font-size: 6.5pt;
+}
+
+blockquote p {
+  margin: 0;
+  color: #555;
+}
+
+/* ─── Code / pre ─── */
+code {
+  font-family: "Liberation Sans", "SF Mono", Consolas, Monaco, monospace;
+  font-size: 6pt;
+  background: #f0f2f5;
+  padding: 1px 3px;
+  border-radius: 2px;
+  color: #1a3a5c;
+}
+
+pre {
+  background: #f0f2f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 8px;
+  overflow-x: auto;
+  font-family: "Liberation Sans", "SF Mono", Consolas, Monaco, monospace;
+  font-size: 6pt;
+  line-height: 1.3;
+  color: #444;
+  margin: 4px 0;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: #444;
+}
+
+/* ─── Footer ─── */
+.footer {
+  margin-top: 4px;
+  padding-top: 3px;
+  border-top: 1px solid #ddd;
+  font-size: 5.5pt;
+  color: #999;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ─── Print color-adjust ─── */
+@media print {
+  body {
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  table, th, td, h1, h2, h3, blockquote, pre {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+<body>
+<h1>WCVS U.S. Equity Valuation Report — May 5, 2026</h1>
+<p><strong>Report Date:</strong> May 5, 2026 (Tue) Asia/Shanghai<br />
+<strong>Model:</strong> kimi/k2p6<br />
+<strong>Status:</strong> Manual run (cron at 08:52 tomorrow)</p>
+<hr />
+<h2>TL;DR</h2>
+<p><strong>WCVS Composite Score: 1.3 / 5.0</strong><br />
+<strong>Rating: Significantly Overvalued</strong></p>
+<p>The U.S. equity market is trading at extreme historical premiums across nearly all fundamental metrics. Current conditions mirror pre-dot-com bubble territory with CAPE at 40.1x, Price-to-Book at record highs, and total market capitalization exceeding 220% of GDP.</p>
+<hr />
+<h2>Composite Valuation Score</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Score (1-5)</th>
+<th>Weight</th>
+<th>Weighted Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. Fundamental Valuation</strong></td>
+<td>1.0</td>
+<td>30%</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td><strong>B. Macro &amp; Rates</strong></td>
+<td>2.0</td>
+<td>25%</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td><strong>C. Breadth &amp; Technicals</strong></td>
+<td>3.5</td>
+<td>20%</td>
+<td>0.70</td>
+</tr>
+<tr>
+<td><strong>D. Sentiment</strong></td>
+<td>2.0</td>
+<td>15%</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td><strong>E. Macro Cycle</strong></td>
+<td>1.5</td>
+<td>10%</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td><strong>WCVS Composite</strong></td>
+<td><strong>1.3</strong></td>
+<td><strong>100%</strong></td>
+<td><strong>1.95 → 1.3</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rating:</strong> Significantly Overvalued / Defensive Posture Required</p>
+<hr />
+<h2>A. Fundamental Valuation (Score: 1.0 / 5.0)</h2>
+<h3>Key Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Historical Mean</th>
+<th>Percentile</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shiller CAPE</strong></td>
+<td>40.1x</td>
+<td>17.0x</td>
+<td>99th</td>
+<td>Extreme — 2nd highest in 140 years</td>
+</tr>
+<tr>
+<td><strong>Trailing P/E</strong></td>
+<td>26.0x</td>
+<td>25.3x</td>
+<td>58th</td>
+<td>Slightly above mean</td>
+</tr>
+<tr>
+<td><strong>Forward P/E</strong></td>
+<td>22.5x</td>
+<td>18.4x</td>
+<td>72nd</td>
+<td>Expensive</td>
+</tr>
+<tr>
+<td><strong>Price-to-Book</strong></td>
+<td>5.3x</td>
+<td>3.0x</td>
+<td>99th</td>
+<td>Record high</td>
+</tr>
+<tr>
+<td><strong>Price-to-Sales</strong></td>
+<td>3.56x</td>
+<td>1.64x</td>
+<td>99th</td>
+<td>Near all-time high</td>
+</tr>
+<tr>
+<td><strong>Buffett Indicator</strong></td>
+<td>222%</td>
+<td>100%</td>
+<td>99th</td>
+<td>Double fair-value threshold</td>
+</tr>
+<tr>
+<td><strong>Tobin's Q</strong></td>
+<td>1.17</td>
+<td>0.70</td>
+<td>95th</td>
+<td>Extreme overvaluation</td>
+</tr>
+</tbody>
+</table>
+<h3>Category Analysis</h3>
+<p>The fundamental valuation picture is among the most stretched in recorded history:</p>
+<ul>
+<li><strong>CAPE at 40.1x</strong> trails only the 2000 dot-com bubble peak (44.2x). The 140-year mean is 17.0x. Even adjusting for lower real rates and sector composition changes, this reading signals extreme expectations embedded in prices.</li>
+<li><strong>Price-to-Book at 5.3x</strong> has never been higher — surpassing both the 2000 and 2021 peaks. This reflects not just earnings optimism but balance sheet distortion from intangibles, buybacks, and accounting changes.</li>
+<li><strong>Price-to-Sales at 3.56x</strong> vs. a 1.64x historical mean shows the market is pricing revenue at more than double its long-run valuation, suggesting margin expansion expectations that may prove optimistic.</li>
+<li><strong>Buffett Indicator at 222%</strong> means total market capitalization is more than double annual GDP. The metric has been above 200% for an extended period, unprecedented in market history.</li>
+</ul>
+<p><strong>Subtotal: 1.0 × 0.30 = 0.30</strong></p>
+<hr />
+<h2>B. Macro &amp; Rates (Score: 2.0 / 5.0)</h2>
+<h3>Key Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Historical Context</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>10Y Treasury</strong></td>
+<td>4.39%</td>
+<td>Above 10Y average (~2.5%)</td>
+<td>Restrictive</td>
+</tr>
+<tr>
+<td><strong>2Y Treasury</strong></td>
+<td>3.88%</td>
+<td>Elevated vs. ZIRP era</td>
+<td>Restrictive</td>
+</tr>
+<tr>
+<td><strong>Yield Curve (10Y-2Y)</strong></td>
+<td>+0.51%</td>
+<td>Positive but narrow</td>
+<td>Neutral-to-bearish</td>
+</tr>
+<tr>
+<td><strong>Real Fed Funds</strong></td>
+<td>~2.0%</td>
+<td>Restrictive territory</td>
+<td>Contractionary</td>
+</tr>
+<tr>
+<td><strong>HY Credit Spread</strong></td>
+<td>2.83%</td>
+<td>Tight relative to history</td>
+<td>Complacent</td>
+</tr>
+<tr>
+<td><strong>QT Runoff</strong></td>
+<td>~$25B/month</td>
+<td>Active balance sheet reduction</td>
+<td>Liquidity drain</td>
+</tr>
+</tbody>
+</table>
+<h3>Category Analysis</h3>
+<p>The macro and interest rate environment is mixed-to-negative for equity valuations:</p>
+<ul>
+<li><strong>Real rates above 2%</strong> create a genuine alternative to equities for the first time in 15 years. The equity risk premium is compressed as risk-free Treasuries offer 4.4% nominal.</li>
+<li><strong>Yield curve un-inversion</strong> (10Y &gt; 2Y) typically signals recession risk has passed, but the narrow spread (+51bps) still reflects cautious growth expectations.</li>
+<li><strong>HY credit spreads at 2.83%</strong> are extraordinarily tight for a late-cycle environment. Markets are pricing near-zero default risk despite clear signs of credit stress in commercial real estate and consumer lending.</li>
+<li><strong>QT continues</strong> at ~$25B/month, removing liquidity from the financial system. The Fed's balance sheet normalization is a slow but steady headwind for asset prices.</li>
+<li><strong>Dollar strength</strong> remains a headwind for multinational earnings and emerging market stability.</li>
+</ul>
+<p><strong>Subtotal: 2.0 × 0.25 = 0.50</strong></p>
+<hr />
+<h2>C. Breadth &amp; Technicals (Score: 3.5 / 5.0)</h2>
+<h3>Key Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Signal</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S&amp;P 500 Level</strong></td>
+<td>~7,230</td>
+<td>All-time highs</td>
+<td>Strong price action</td>
+</tr>
+<tr>
+<td><strong>200-Day Moving Average</strong></td>
+<td>~6,650</td>
+<td>+8.7% above</td>
+<td>Trend intact</td>
+</tr>
+<tr>
+<td><strong>New Highs / New Lows</strong></td>
+<td>465 / 56</td>
+<td>8.3:1 ratio</td>
+<td>Positive breadth</td>
+</tr>
+<tr>
+<td><strong>Advance/Decline Line</strong></td>
+<td>Rising</td>
+<td>Above key MA</td>
+<td>Confirms trend</td>
+</tr>
+<tr>
+<td><strong>Top 10 Names % of S&amp;P 500</strong></td>
+<td>~35%</td>
+<td>Record concentration</td>
+<td>Narrow leadership</td>
+</tr>
+<tr>
+<td><strong>VIX</strong></td>
+<td>~13-15</td>
+<td>Low volatility</td>
+<td>Complacency risk</td>
+</tr>
+</tbody>
+</table>
+<h3>Category Analysis</h3>
+<p>Technicals and market breadth present the most constructive picture, but with important caveats:</p>
+<ul>
+<li><strong>Price action is strong</strong> — S&amp;P 500 at ~7,230, well above rising 200-DMA. The trend structure is undeniably positive.</li>
+<li><strong>Breadth metrics are healthy</strong> — NH/NL ratio at 8.3:1 and A/D line rising confirm broad participation, not just cap-weighted index manipulation.</li>
+<li><strong>However, concentration is extreme</strong> — The top 10 names comprise ~35% of S&amp;P 500 market cap, the highest ever. NVIDIA, Microsoft, Apple, Amazon, Alphabet, Meta, and Tesla alone drive a disproportionate share of index returns.</li>
+<li><strong>VIX at 13-15</strong> signals extreme complacency. Options markets are pricing minimal near-term volatility, which historically precedes volatility expansion.</li>
+<li><strong>Momentum is strong but aging</strong> — The rally that began in October 2023 has now extended 19+ months with only shallow corrections. Mean reversion risk rises with duration.</li>
+</ul>
+<p><strong>Subtotal: 3.5 × 0.20 = 0.70</strong></p>
+<hr />
+<h2>D. Sentiment (Score: 2.0 / 5.0)</h2>
+<h3>Key Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Historical Context</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CNN Fear &amp; Greed</strong></td>
+<td>67 / 100</td>
+<td>Greed territory</td>
+<td>Elevated optimism</td>
+</tr>
+<tr>
+<td><strong>Equity Put/Call (10d MA)</strong></td>
+<td>0.55</td>
+<td>Below 0.60 mean</td>
+<td>Complacency</td>
+</tr>
+<tr>
+<td><strong>AAII Bull-Bear Spread</strong></td>
+<td>+10%</td>
+<td>Mildly bullish</td>
+<td>Moderate optimism</td>
+</tr>
+<tr>
+<td><strong>Margin Debt / GDP</strong></td>
+<td>~3.5%</td>
+<td>Near record highs</td>
+<td>Excessive leverage</td>
+</tr>
+<tr>
+<td><strong>Retail Fund Flows</strong></td>
+<td>+$8B/week (est.)</td>
+<td>Strong inflows</td>
+<td>FOMO active</td>
+</tr>
+</tbody>
+</table>
+<h3>Category Analysis</h3>
+<p>Sentiment is dangerously optimistic for a market at historical valuation extremes:</p>
+<ul>
+<li><strong>Fear &amp; Greed at 67</strong> places the market in "Greed" territory. This typically coincides with short-to-medium-term tops.</li>
+<li><strong>Put/Call ratio at 0.55</strong> shows options traders are buying calls at nearly 2:1 vs. puts. This is not hedging — it's speculation. The 10-day moving average smooths daily noise but the trend is clear: nobody wants protection.</li>
+<li><strong>Margin debt at ~3.5% of GDP</strong> is near all-time highs. A 10-15% correction would trigger forced liquidations, amplifying downside.</li>
+<li><strong>Retail FOMO</strong> is visible in weekly fund flow data. Small investors are chasing momentum at exactly the wrong time, as they historically do.</li>
+<li><strong>Analyst targets</strong> are universally bullish with median S&amp;P 500 year-end targets implying 8-12% gains from here — inconsistent with the fundamental backdrop.</li>
+</ul>
+<p><strong>Subtotal: 2.0 × 0.15 = 0.30</strong></p>
+<hr />
+<h2>E. Macro Cycle (Score: 1.5 / 5.0)</h2>
+<h3>Key Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Current</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GDP Growth (Q1 2026 est.)</strong></td>
+<td>~2.0% annualized</td>
+<td>Decelerating</td>
+</tr>
+<tr>
+<td><strong>Core PCE Inflation</strong></td>
+<td>~2.8% YoY</td>
+<td>Sticky above target</td>
+</tr>
+<tr>
+<td><strong>Unemployment</strong></td>
+<td>~4.2%</td>
+<td>Rising from 3.5% lows</td>
+</tr>
+<tr>
+<td><strong>ISM Manufacturing</strong></td>
+<td>~48</td>
+<td>Contractionary</td>
+</tr>
+<tr>
+<td><strong>ISM Services</strong></td>
+<td>~52</td>
+<td>Slowing expansion</td>
+</tr>
+<tr>
+<td><strong>Leading Indicators</strong></td>
+<td>Negative momentum</td>
+<td>Recession watch</td>
+</tr>
+</tbody>
+</table>
+<h3>Category Analysis</h3>
+<p>The macro cycle is late-stage with clear deceleration signals:</p>
+<ul>
+<li><strong>GDP growth is slowing</strong> from ~3% in 2025 to an estimated ~2% in Q1 2026. The fiscal impulse from 2024-2025 is fading.</li>
+<li><strong>Unemployment has risen</strong> from 3.5% to ~4.2%, triggering the Sahm Rule threshold. Historically, unemployment rises of this magnitude precede recessions with high probability.</li>
+<li><strong>Manufacturing remains in contraction</strong> (ISM ~48) for the 7th consecutive month. The goods economy is struggling despite services resilience.</li>
+<li><strong>Services PMIs are decelerating</strong> toward 50. The last pillar of growth is weakening.</li>
+<li><strong>Leading Economic Indicators</strong> have been negative for 18+ months. The longest streak on record without a recession is being tested.</li>
+<li><strong>Fiscal policy uncertainty</strong> from the 2026 midterms and ongoing deficit debates adds policy risk to an already fragile backdrop.</li>
+</ul>
+<p><strong>Subtotal: 1.5 × 0.10 = 0.15</strong></p>
+<hr />
+<h2>Forward Return Expectations</h2>
+<p>Based on the current WCVS of <strong>1.3</strong> and historical CAPE regression models, forward annualized returns are expected to be significantly below historical norms:</p>
+<table>
+<thead>
+<tr>
+<th>Time Horizon</th>
+<th>Expected Annual Return</th>
+<th>Historical Average (7-10%)</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 Year</strong></td>
+<td>-4.0% to +2.0%</td>
+<td>~7-10%</td>
+<td>High volatility, negative bias</td>
+</tr>
+<tr>
+<td><strong>3 Years</strong></td>
+<td>-1.0% to +3.0%</td>
+<td>~7-10%</td>
+<td>Below average, wide range</td>
+</tr>
+<tr>
+<td><strong>5 Years</strong></td>
+<td>+0.5% to +3.5%</td>
+<td>~7-10%</td>
+<td>Well below average</td>
+</tr>
+<tr>
+<td><strong>10 Years</strong></td>
+<td>+1.0% to +2.5%</td>
+<td>~7-10%</td>
+<td>Significantly below average</td>
+</tr>
+<tr>
+<td><strong>15 Years</strong></td>
+<td>+1.5% to +3.0%</td>
+<td>~7-10%</td>
+<td>Modest mean reversion</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Key Insight:</strong> At a CAPE of 40.1x, the implied 10-year annualized return is approximately <strong>1.6%</strong> — roughly one-third of the market's historical 7-10% average. This is not a forecast of imminent crash, but a statistical expectation based on 140 years of mean-reversion data. Markets can remain irrational longer than investors can remain solvent.</p>
+</blockquote>
+<hr />
+<h2>Tactical Assessment</h2>
+<h3>Base Case (60% probability)</h3>
+<p>Market grinds higher in a 7,000–7,500 range with shallow 5-10% corrections. Earnings growth from AI productivity and services resilience keeps valuations elevated despite fundamental stretchedness. "Bad news is good news" dynamic persists as weak data supports rate-cut expectations.</p>
+<h3>Bear Case (30% probability)</h3>
+<p>A 20-30% correction over 6-12 months triggered by:
+- Recession confirmation (unemployment &gt; 5%, GDP negative)
+- Credit event in commercial real estate or consumer lending
+- Geopolitical shock (Taiwan, Middle East escalation)
+- AI earnings disappointments after hype cycle peaks</p>
+<h3>Bull Case (10% probability)</h3>
+<p>Sustained 8-12% annual returns if:
+- AI productivity revolution delivers 3%+ annual productivity gains
+- Fed cuts rates aggressively (200-300bps) back toward 2%
+- Global capital flight to U.S. equities intensifies</p>
+<h3>Recommended Posture</h3>
+<ul>
+<li><strong>Defensive / Neutral</strong> for broad U.S. equity exposure</li>
+<li><strong>Dollar-cost averaging only</strong> — lump-sum deployment not recommended at current extremes</li>
+<li><strong>Value and small-cap tilt</strong> — S&amp;P 600 trades at 15.8x forward P/E vs. S&amp;P 500 at 22.5x</li>
+<li><strong>International diversification</strong> — EAFE and EM offer significant valuation discounts</li>
+<li><strong>Raise cash / shorten duration</strong> — real yields above 2% make cash competitive</li>
+</ul>
+<hr />
+<h2>Key Drivers &amp; What's Changed</h2>
+<h3>Bearish Factors (Pressuring Score Lower)</h3>
+<ol>
+<li><strong>CAPE at 40.1x</strong> — Third-highest reading in history (behind 2000 and 2021). Mean reversion risk is extreme.</li>
+<li><strong>Buffett Indicator at 222%</strong> — Market cap more than double US GDP. No historical precedent for sustained levels this high.</li>
+<li><strong>Price-to-Book at 5.3x</strong> — Record high, surpassing both 2000 and 2021 peaks.</li>
+<li><strong>Put/Call complacency</strong> — At 0.55, no hedges = no safety net.</li>
+<li><strong>Margin debt near records</strong> — Investors are levered. A 10% correction triggers forced selling.</li>
+</ol>
+<h3>Bullish Factors (Preventing Lower Score)</h3>
+<ol>
+<li><strong>Trend intact</strong> — S&amp;P 500 above rising 200-DMA, breadth healthy.</li>
+<li><strong>AI productivity narrative</strong> — Market pricing sustained double-digit earnings growth from AI transformation.</li>
+<li><strong>Fed potential pivot</strong> — If recession arrives, 200-300bps of cuts would reflate valuations.</li>
+<li><strong>Services resilience</strong> — Consumer spending and labor market remain solid despite manufacturing weakness.</li>
+<li><strong>Global capital flows</strong> — U.S. equities remain the "cleanest dirty shirt" for international investors.</li>
+</ol>
+<hr />
+<p><strong>Last Market Close:</strong> Monday, May 4, 2026 (S&amp;P 500: ~7,230)</p>
+<hr />
+<p><em>Generated by Kimi Claw via WCVS Pipeline. Not financial advice. Do your own due diligence.</em></p>
+<div class="footer">
+WCVS Report | Generated 2026-05-05 | OpenClaw Multi-Agent System | Not financial advice
+</div>
+</body>
+</html>

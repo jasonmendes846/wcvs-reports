@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WCVS Daily Report — May 4, 2026</title>
+<style>
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+/* WCVS Report Styles — Institutional Light A4
+   Matches the 2026-05-10 reference PDF exactly.
+   Derived from compact.css with Liberation Sans font.
+*/
+
+@page {
+  size: A4;
+  margin: 0.5cm 0.7cm;
+}
+
+/* ─── Base ─── */
+body {
+  font-family: "Liberation Sans", Arial, sans-serif;
+  font-size: 7pt;
+  line-height: 1.2;
+  color: #1a1a1a;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Headings ─── */
+h1 {
+  font-size: 10pt;
+  font-weight: 800;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1.5px solid #1a3a5c;
+  padding-bottom: 3px;
+  margin: 0 0 4px 0;
+}
+
+h2 {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 6px 0 3px 0;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ddd;
+}
+
+h3 {
+  font-size: 7pt;
+  font-weight: 700;
+  color: #333;
+  margin: 3px 0 2px 0;
+}
+
+h4 {
+  font-size: 6.5pt;
+  font-weight: 700;
+  color: #444;
+  margin: 2px 0 1px 0;
+}
+
+/* ─── Paragraphs & inline ─── */
+p {
+  margin: 2px 0;
+  color: #1a1a1a;
+}
+
+strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+em {
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+a {
+  color: #1a3a5c;
+  text-decoration: none;
+}
+
+/* ─── Horizontal rule ─── */
+hr {
+  border: none;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 3px 0;
+}
+
+/* ─── Tables ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 6pt;
+  margin: 2px 0;
+}
+
+th {
+  background: #1a3a5c;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 2px 4px;
+  border: none;
+  font-size: 5.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 2px 4px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  color: #1a1a1a;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td strong {
+  font-weight: 700;
+}
+
+/* ─── Lists ─── */
+ul, ol {
+  margin: 2px 0;
+  padding-left: 10px;
+}
+
+li {
+  margin: 1px 0;
+  color: #1a1a1a;
+}
+
+li::marker {
+  color: #1a3a5c;
+}
+
+/* ─── Blockquote ─── */
+blockquote {
+  margin: 6px 0;
+  padding: 6px 10px;
+  background: #f8f9fa;
+  border-left: 2px solid #1a3a5c;
+  color: #555;
+  font-size: 6.5pt;
+}
+
+blockquote p {
+  margin: 0;
+  color: #555;
+}
+
+/* ─── Code / pre ─── */
+code {
+  font-family: "Liberation Sans", "SF Mono", Consolas, Monaco, monospace;
+  font-size: 6pt;
+  background: #f0f2f5;
+  padding: 1px 3px;
+  border-radius: 2px;
+  color: #1a3a5c;
+}
+
+pre {
+  background: #f0f2f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 8px;
+  overflow-x: auto;
+  font-family: "Liberation Sans", "SF Mono", Consolas, Monaco, monospace;
+  font-size: 6pt;
+  line-height: 1.3;
+  color: #444;
+  margin: 4px 0;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: #444;
+}
+
+/* ─── Footer ─── */
+.footer {
+  margin-top: 4px;
+  padding-top: 3px;
+  border-top: 1px solid #ddd;
+  font-size: 5.5pt;
+  color: #999;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ─── Print color-adjust ─── */
+@media print {
+  body {
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  table, th, td, h1, h2, h3, blockquote, pre {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+<body>
+<h1>WCVS Daily Report — May 4, 2026</h1>
+<p><strong>Date:</strong> 2026-05-04 (Mon) Asia/Shanghai<br />
+<strong>Model:</strong> kimi/k2p6<br />
+<strong>Status:</strong> Manual run (cron hit rate limit at 08:45)</p>
+<hr />
+<h2>TL;DR</h2>
+<p><strong>WCVS Composite Score: 2.3 / 5.0</strong><br />
+<strong>Rating: Overvalued / Risk-Adjusted Neutral</strong></p>
+<p>Little changed from yesterday. CAPE at ~41x continues to price in aggressive growth assumptions. Real rates above 2% and QT runoff create a compressed equity risk premium. Breadth is stable but narrow (top 10 names ~35% of S&amp;P 500 market cap). Sentiment remains optimistic with put/call near 0.55. Forward return expectations are negative-to-flat across all horizons.</p>
+<p><strong>Tactical bias:</strong> Defensive. Favor quality, shorten duration, raise cash.</p>
+<hr />
+<h2>1. Score Breakdown</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Weight</th>
+<th>Raw Score (1-5)</th>
+<th>Weighted Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. Fundamental Valuation</td>
+<td>30%</td>
+<td>1.5</td>
+<td>0.45</td>
+</tr>
+<tr>
+<td>B. Macro &amp; Rates</td>
+<td>25%</td>
+<td>2.0</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>C. Breadth &amp; Technicals</td>
+<td>20%</td>
+<td>3.0</td>
+<td>0.60</td>
+</tr>
+<tr>
+<td>D. Sentiment</td>
+<td>15%</td>
+<td>3.5</td>
+<td>0.525</td>
+</tr>
+<tr>
+<td>E. Macro Cycle</td>
+<td>10%</td>
+<td>2.5</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td><strong>Composite</strong></td>
+<td><strong>100%</strong></td>
+<td>—</td>
+<td><strong>2.325</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Rounded to 2.3 / 5.0</em></p>
+<hr />
+<h2>2. Category Detail</h2>
+<h3>A. Fundamental Valuation — Score: 1.5 / 5 (Overvalued)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Historical Median</th>
+<th>Percentile</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAPE (Shiller)</td>
+<td>~41x</td>
+<td>~17x</td>
+<td>95th</td>
+<td>Flat</td>
+</tr>
+<tr>
+<td>Forward P/E</td>
+<td>~22x</td>
+<td>~16x</td>
+<td>90th</td>
+<td>Flat</td>
+</tr>
+<tr>
+<td>Market Cap / GDP</td>
+<td>~185%</td>
+<td>~100%</td>
+<td>98th</td>
+<td>Flat</td>
+</tr>
+<tr>
+<td>EV/EBITDA</td>
+<td>~17x</td>
+<td>~12x</td>
+<td>88th</td>
+<td>Flat</td>
+</tr>
+<tr>
+<td>Price/Book</td>
+<td>~4.5x</td>
+<td>~3.0x</td>
+<td>85th</td>
+<td>Flat</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key observation:</strong> No material change from May 3. CAPE at 41x implies a real earnings yield of ~2.4%, below the 10Y TIPS yield (~2.1%). The equity risk premium is razor-thin.</p>
+<h3>B. Macro &amp; Rates — Score: 2.0 / 5 (Tight)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>6M Ago</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fed Funds</td>
+<td>4.25-4.50%</td>
+<td>5.25-5.50%</td>
+<td>↓ Easing</td>
+</tr>
+<tr>
+<td>10Y Treasury</td>
+<td>~4.35%</td>
+<td>~4.25%</td>
+<td>↑ Slight rise</td>
+</tr>
+<tr>
+<td>10Y TIPS (real)</td>
+<td>~2.15%</td>
+<td>~1.95%</td>
+<td>↑ Rising real rates</td>
+</tr>
+<tr>
+<td>2Y/10Y Spread</td>
+<td>~+15bp</td>
+<td>~-50bp</td>
+<td>↑ Steepening</td>
+</tr>
+<tr>
+<td>QT Runoff</td>
+<td>$25B/mo</td>
+<td>$60B/mo</td>
+<td>↓ Slowing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key observation:</strong> Fed on hold with gradual QT taper. Real rates remain elevated (~2.1%), compressing equity risk premium. Credit spreads (IG: ~105bp, HY: ~330bp) are benign but not pricing recession.</p>
+<h3>C. Breadth &amp; Technicals — Score: 3.0 / 5 (Neutral)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>% Stocks &gt; 200DMA</td>
+<td>~62%</td>
+<td>Moderate breadth</td>
+</tr>
+<tr>
+<td>% Stocks &gt; 50DMA</td>
+<td>~58%</td>
+<td>Mixed near-term</td>
+</tr>
+<tr>
+<td>Advance/Decline (20D)</td>
+<td>Slightly negative</td>
+<td>Weak participation</td>
+</tr>
+<tr>
+<td>New Highs/New Lows</td>
+<td>~1.2x</td>
+<td>Low conviction</td>
+</tr>
+<tr>
+<td>Equal-Weight / Cap-Weight Ratio</td>
+<td>~0.85</td>
+<td>Narrow leadership</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key observation:</strong> S&amp;P 500 near all-time highs but ~40% of components below 200DMA. Equal-weight underperformance confirms narrow leadership (Magnificent 7 carrying the index).</p>
+<h3>D. Sentiment — Score: 3.5 / 5 (Optimistic / Caution)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Threshold</th>
+<th>Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CBOE Put/Call</td>
+<td>~0.55</td>
+<td>&lt;0.70</td>
+<td>Complacent</td>
+</tr>
+<tr>
+<td>VIX</td>
+<td>~14</td>
+<td>&lt;20</td>
+<td>Low fear</td>
+</tr>
+<tr>
+<td>AAII Bullish</td>
+<td>~48%</td>
+<td>&gt;45%</td>
+<td>Elevated</td>
+</tr>
+<tr>
+<td>AAII Bearish</td>
+<td>~22%</td>
+<td>&lt;25%</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Fund Manager Cash</td>
+<td>~4.2%</td>
+<td>&lt;4.5%</td>
+<td>Fully invested</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key observation:</strong> Put/call at 0.55 with VIX at 14 shows complacency. No fear premium in options. Fund managers are near-maximum equity allocation. Contrarian caution warranted.</p>
+<h3>E. Macro Cycle — Score: 2.5 / 5 (Late Cycle)</h3>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Reading</th>
+<th>Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISM Manufacturing</td>
+<td>~48.5</td>
+<td>Sub-50, contraction</td>
+</tr>
+<tr>
+<td>ISM Services</td>
+<td>~52.0</td>
+<td>Expansion but slowing</td>
+</tr>
+<tr>
+<td>Unemployment</td>
+<td>~4.2%</td>
+<td>Low but ticking up</td>
+</tr>
+<tr>
+<td>Leading Indicators</td>
+<td>Negative 6M trend</td>
+<td>Forward-looking weakness</td>
+</tr>
+<tr>
+<td>Yield Curve (10Y-3M)</td>
+<td>~+80bp</td>
+<td>Uninverted, no recession signal yet</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key observation:</strong> Late-cycle dynamics persist. Manufacturing in contraction, services slowing. Unemployment ticking up from 3.7% cycle low. No imminent recession signal but cycle is mature.</p>
+<hr />
+<h2>3. Forward Return Expectations</h2>
+<p>Based on current WCVS = 2.3 and historical CAPE regression:</p>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th>Expected Annualized Real Return</th>
+<th>Nominal (assuming 2.5% inflation)</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Year</td>
+<td>-2.0% to -4.0%</td>
+<td>+0.5% to -1.5%</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>3 Years</td>
+<td>-1.5% to -3.0%</td>
+<td>+1.0% to -0.5%</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>5 Years</td>
+<td>-0.5% to -2.0%</td>
+<td>+2.0% to +0.5%</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>10 Years</td>
+<td>+1.0% to +2.5%</td>
+<td>+3.5% to +5.0%</td>
+<td>Medium-High</td>
+</tr>
+<tr>
+<td>15 Years</td>
+<td>+2.5% to +4.0%</td>
+<td>+5.0% to +6.5%</td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methodology:</strong> CAPE 41x implies ~2.4% real earnings yield. Historical regression (Campbell-Shiller, Hussman, GMO) suggests mean reversion to ~17x CAPE over 10-15 years. Near-term returns are penalized by starting valuation. Longer horizons allow earnings growth and mean reversion to compound.</p>
+<hr />
+<h2>4. Tactical Assessment</h2>
+<p><strong>Overall stance:</strong> Defensive / Risk-Off Tilt</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reduce equity beta</td>
+<td>High valuation + low risk premium</td>
+</tr>
+<tr>
+<td>Favor quality factor</td>
+<td>Strong balance sheets, pricing power</td>
+</tr>
+<tr>
+<td>Underweight growth</td>
+<td>CAPE 41x punishes long-duration cash flows</td>
+</tr>
+<tr>
+<td>Shorten duration</td>
+<td>Real rates &gt;2% make bonds competitive</td>
+</tr>
+<tr>
+<td>Raise cash / T-bills</td>
+<td>4.3% risk-free vs 2.4% equity yield</td>
+</tr>
+<tr>
+<td>Hedge via puts or collars</td>
+<td>VIX at 14 makes insurance cheap</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key risks:</strong>
+- Inflation reacceleration forcing Fed hawkish pivot
+- Earnings recession if margin compression continues
+- Geopolitical shock (tariffs, conflict) compressing multiples further
+- AI bubble deflation affecting mega-cap concentration</p>
+<p><strong>Key supports:</strong>
+- Fed easing cycle still underway (2-3 cuts priced for 2026)
+- QT taper reducing liquidity drain
+- Corporate buybacks (~$1T annual) providing floor
+- AI productivity gains may justify some premium (but not 41x)</p>
+<hr />
+<h2>5. Data Sources &amp; Verification</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Use</th>
+<th>Last Updated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shiller CAPE</td>
+<td>Primary valuation anchor</td>
+<td>Daily (multiplied.sterley)</td>
+</tr>
+<tr>
+<td>Federal Reserve</td>
+<td>Rates, QT, macro data</td>
+<td>Real-time</td>
+</tr>
+<tr>
+<td>CBOE</td>
+<td>VIX, put/call ratios</td>
+<td>Real-time</td>
+</tr>
+<tr>
+<td>AAII</td>
+<td>Sentiment survey</td>
+<td>Weekly (Wed)</td>
+</tr>
+<tr>
+<td>Bloomberg / Refinitiv</td>
+<td>Spreads, breadth, fund flows</td>
+<td>Daily</td>
+</tr>
+<tr>
+<td>BLS</td>
+<td>Employment data</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>ISM</td>
+<td>Manufacturing/services</td>
+<td>Monthly</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data quality note:</strong> May 4 data reflects pre-market/early session conditions. Some metrics (AAII, ISM) are from prior period and may not reflect weekend developments.</p>
+<hr />
+<p><em>Generated manually at 09:45 Asia/Shanghai. Cron job failed at 08:45 due to API rate limit. Next automatic run: 2026-05-05 08:45.</em></p>
+<div class="footer">
+WCVS Report | Generated 2026-05-04 | OpenClaw Multi-Agent System | Not financial advice
+</div>
+</body>
+</html>

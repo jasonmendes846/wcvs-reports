@@ -26,13 +26,13 @@
 
   <nav class="report-nav bottom">
     {% if prev %}
-    <a class="report-nav-prev" href="/reports/{{ prev.date }}/index.html">← {{ prev.date }}</a>
+    <a class="report-nav-prev" href="{{ base_path }}/reports/{{ prev.date }}/index.html">← {{ prev.date }}</a>
     {% else %}
     <span class="report-nav-prev disabled">← Previous</span>
     {% endif %}
-    <a class="report-nav-archive" href="/archive/index.html">Archive</a>
+    <a class="report-nav-archive" href="{{ base_path }}/archive/index.html">Archive</a>
     {% if next_report %}
-    <a class="report-nav-next" href="/reports/{{ next_report.date }}/index.html">{{ next_report.date }} →</a>
+    <a class="report-nav-next" href="{{ base_path }}/reports/{{ next_report.date }}/index.html">{{ next_report.date }} →</a>
     {% else %}
     <span class="report-nav-next disabled">Next →</span>
     {% endif %}

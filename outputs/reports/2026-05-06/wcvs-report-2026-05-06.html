@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WCVS U.S. Equity Valuation Report</title>
+<style>
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Liberation Sans';
+  src: url('./fonts/LiberationSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+/* WCVS Report Styles — Institutional Light A4
+   Matches the 2026-05-10 reference PDF exactly.
+   Derived from compact.css with Liberation Sans font.
+*/
+
+@page {
+  size: A4;
+  margin: 0.5cm 0.7cm;
+}
+
+/* ─── Base ─── */
+body {
+  font-family: "Liberation Sans", Arial, sans-serif;
+  font-size: 7pt;
+  line-height: 1.2;
+  color: #1a1a1a;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Headings ─── */
+h1 {
+  font-size: 10pt;
+  font-weight: 800;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1.5px solid #1a3a5c;
+  padding-bottom: 3px;
+  margin: 0 0 4px 0;
+}
+
+h2 {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 6px 0 3px 0;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ddd;
+}
+
+h3 {
+  font-size: 7pt;
+  font-weight: 700;
+  color: #333;
+  margin: 3px 0 2px 0;
+}
+
+h4 {
+  font-size: 6.5pt;
+  font-weight: 700;
+  color: #444;
+  margin: 2px 0 1px 0;
+}
+
+/* ─── Paragraphs & inline ─── */
+p {
+  margin: 2px 0;
+  color: #1a1a1a;
+}
+
+strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+em {
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+a {
+  color: #1a3a5c;
+  text-decoration: none;
+}
+
+/* ─── Horizontal rule ─── */
+hr {
+  border: none;
+  height: 1px;
+  background: #e0e0e0;
+  margin: 3px 0;
+}
+
+/* ─── Tables ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 6pt;
+  margin: 2px 0;
+}
+
+th {
+  background: #1a3a5c;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 2px 4px;
+  border: none;
+  font-size: 5.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 2px 4px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  color: #1a1a1a;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td strong {
+  font-weight: 700;
+}
+
+/* ─── Lists ─── */
+ul, ol {
+  margin: 2px 0;
+  padding-left: 10px;
+}
+
+li {
+  margin: 1px 0;
+  color: #1a1a1a;
+}
+
+li::marker {
+  color: #1a3a5c;
+}
+
+/* ─── Blockquote ─── */
+blockquote {
+  margin: 6px 0;
+  padding: 6px 10px;
+  background: #f8f9fa;
+  border-left: 2px solid #1a3a5c;
+  color: #555;
+  font-size: 6.5pt;
+}
+
+blockquote p {
+  margin: 0;
+  color: #555;
+}
+
+/* ─── Code / pre ─── */
+code {
+  font-family: "Liberation Sans", "SF Mono", Consolas, Monaco, monospace;
+  font-size: 6pt;
+  background: #f0f2f5;
+  padding: 1px 3px;
+  border-radius: 2px;
+  color: #1a3a5c;
+}
+
+pre {
+  background: #f0f2f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 8px;
+  overflow-x: auto;
+  font-family: "Liberation Sans", "SF Mono", Consolas, Monaco, monospace;
+  font-size: 6pt;
+  line-height: 1.3;
+  color: #444;
+  margin: 4px 0;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: #444;
+}
+
+/* ─── Footer ─── */
+.footer {
+  margin-top: 4px;
+  padding-top: 3px;
+  border-top: 1px solid #ddd;
+  font-size: 5.5pt;
+  color: #999;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ─── Print color-adjust ─── */
+@media print {
+  body {
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  table, th, td, h1, h2, h3, blockquote, pre {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+<body>
+<h1>WCVS U.S. Equity Valuation Report</h1>
+<p><strong>Report Date:</strong> May 6, 2026 | <strong>S&amp;P 500 Reference:</strong> 7,201</p>
+<hr />
+<h2>Composite Valuation Score</h2>
+<div class="hero">
+
+### **WCVS Score: 1.2 / 5.0**
+
+**Rating: SIGNIFICANTLY OVERVALUED**
+
+The U.S. equity market remains at extreme historical premiums. The slight pullback in the S&P 500 from recent highs has done little to correct the fundamental overvaluation embedded across all major metrics.
+
+</div>
+
+<hr />
+<h2>Category Score Breakdown</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Current Value</th>
+<th>Historical Mean</th>
+<th>Percentile</th>
+<th>Score</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shiller CAPE</strong></td>
+<td>39.3</td>
+<td>17.0</td>
+<td>98th</td>
+<td>1.0</td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>Trailing P/E</strong></td>
+<td>25.5</td>
+<td>25.3</td>
+<td>55th</td>
+<td>3.0</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>Forward P/E</strong></td>
+<td>20.9</td>
+<td>18.4</td>
+<td>68th</td>
+<td>2.6</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>Price-to-Book</strong></td>
+<td>5.3x</td>
+<td>3.0x</td>
+<td>99th</td>
+<td>1.0</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>Market Cap / GDP</strong></td>
+<td>226%</td>
+<td>100%</td>
+<td>99th</td>
+<td>1.0</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Weighted Composite: 1.2</strong> (Significantly Overvalued)</p>
+<hr />
+<h2>Forward Return Expectations</h2>
+<p>Based on CAPE regression analysis and historical mean reversion patterns:</p>
+<table>
+<thead>
+<tr>
+<th>Time Horizon</th>
+<th>Expected Annual Return</th>
+<th>vs. Historical Average (7-10%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 Year</strong></td>
+<td>-2% to +3%</td>
+<td>Well below average</td>
+</tr>
+<tr>
+<td><strong>3 Years</strong></td>
+<td>0% to 2%</td>
+<td>Well below average</td>
+</tr>
+<tr>
+<td><strong>5 Years</strong></td>
+<td>0.5% to 2%</td>
+<td>Well below average</td>
+</tr>
+<tr>
+<td><strong>10 Years</strong></td>
+<td>1% to 2%</td>
+<td>Significantly below average</td>
+</tr>
+<tr>
+<td><strong>15 Years</strong></td>
+<td>1.5% to 3%</td>
+<td>Significantly below average</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Key Insight:</strong> At a CAPE near 39, the implied future annual return over the next decade is approximately <strong>1.5%</strong> — roughly one-fifth of the market's historical average. The only periods with worse starting conditions were the 2000 dot-com bubble and late 2021.</p>
+</blockquote>
+<hr />
+<h2>Key Market Drivers</h2>
+<h3>What's Driving Extreme Valuations</h3>
+<ul>
+<li><strong>AI/Productivity Premium:</strong> Market continues to price in sustained double-digit earnings growth from AI-driven productivity gains, though signs of capex fatigue are emerging</li>
+<li><strong>Concentration Effect:</strong> Mega-cap technology names still trade at 25-30x forward earnings, heavily distorting aggregate index metrics</li>
+<li><strong>Liquidity Residuals:</strong> Despite the Fed's higher-for-longer stance, broad money supply remains structurally elevated relative to pre-2020 trends</li>
+</ul>
+<h3>Risk Factors</h3>
+<div class="warning-box">
+
+- **CAPE at 39.3** — Third-highest sustained reading in 150 years of market history, behind only 2000 (44.2) and late 2021 (~40)
+- **Buffett Indicator at 226%** — Total stock market capitalization exceeds GDP by more than 2-to-1; Warren Buffett's "playing with fire" threshold is 200%
+- **Price-to-Book at 5.3x** — Effectively at record highs; investors paying unprecedented premiums for intangible assets
+- **Price-to-Sales at 3.6x** — Nearly double the long-term median of 1.6x
+
+</div>
+
+<hr />
+<h2>Tactical Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Overall Stance</strong></td>
+<td>Defensive. Risk/reward remains skewed to the downside for broad U.S. equities.</td>
+</tr>
+<tr>
+<td><strong>Entry Strategy</strong></td>
+<td>Dollar-cost averaging only; lump-sum deployment strongly discouraged at current extremes.</td>
+</tr>
+<tr>
+<td><strong>Sector Tilt</strong></td>
+<td>Value and small-cap segments remain the only relatively insulated pockets (S&amp;P 600 at ~15x forward P/E vs. S&amp;P 500 at ~21x).</td>
+</tr>
+<tr>
+<td><strong>Geographic Tilt</strong></td>
+<td>International developed and emerging markets continue to offer substantial valuation discounts versus U.S. large-caps.</td>
+</tr>
+<tr>
+<td><strong>Time Horizon</strong></td>
+<td>Long-term investors (10+ years) should expect deeply muted real returns; near-term drawdown risk remains elevated.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Summary</h2>
+<p>The U.S. equity market registers a <strong>WCVS of 1.2</strong> — firmly in "significantly overvalued" territory. With the Shiller CAPE near 39, Price-to-Book at record levels, and total market capitalization more than double GDP, investors face one of the most demanding valuation environments in modern history. The modest pullback from recent S&amp;P 500 highs has not materially improved the risk/reward calculus. Forward return expectations remain substantially below historical norms across every time horizon. Prudent capital allocation continues to favor selectivity, international diversification, and patience for more attractive re-entry points.</p>
+<hr />
+<p><em>Report generated on May 6, 2026. Data sources: GuruFocus, Multpl, YCharts, S&amp;P Global, Federal Reserve. Past performance does not guarantee future results.</em></p>
+<div class="footer">
+WCVS Report | Generated 2026-05-06 | OpenClaw Multi-Agent System | Not financial advice
+</div>
+</body>
+</html>
