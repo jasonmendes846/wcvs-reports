@@ -1,0 +1,97 @@
+{
+  "sp500_price": {
+    "value": 7414.4,
+    "stale": false,
+    "cached": false
+  },
+  "shiller_cape": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "forward_pe": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "fear_greed": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "naaim": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "aaii_bull_bear": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "put_call": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "yield_10y": {
+    "value": 4.396,
+    "stale": false,
+    "cached": false
+  },
+  "yield_2y": {
+    "value": 103.12,
+    "stale": false,
+    "cached": false
+  },
+  "yield_3m": {
+    "value": 3.6,
+    "stale": false,
+    "cached": false
+  },
+  "hy_oas": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "dxy": {
+    "value": 97.881,
+    "stale": false,
+    "cached": false
+  },
+  "wti": {
+    "value": 97.7,
+    "stale": false,
+    "cached": false
+  },
+  "gold": {
+    "value": 4738.5,
+    "stale": false,
+    "cached": false
+  },
+  "market_cap_gdp": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "pct_above_50d": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "pct_above_200d": {
+    "value": null,
+    "stale": false,
+    "cached": false
+  },
+  "spread_10y_2y": {
+    "value": -98.72,
+    "stale": false,
+    "cached": false
+  },
+  "spread_10y_3m": {
+    "value": 0.8,
+    "stale": false,
+    "cached": false
+  }
+}

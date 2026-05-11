@@ -1,0 +1,87 @@
+# WCVS Report — {{ report_date }}
+
+**Weighted Composite Valuation Score (WCVS)**  
+*A multi-factor valuation snapshot of the U.S. equity market*
+
+| **S&P 500** | **WCVS Composite** | **Rating** |
+|-------------|-------------------|------------|
+| {{ "{:,}".format(sp500_price|int) if sp500_price else "N/A" }} | **{{ composite_score }} / 5.0** | {{ rating_text }} |
+
+---
+
+## TL;DR
+
+{{ tldr }}
+
+---
+
+## Composite Score Breakdown
+
+| Category | Weight | Raw Score | Contribution |
+|----------|--------|-----------|--------------|
+{% for cat in categories %}| {{ cat.name }} | {{ cat.weight }}% | {{ cat.raw_score }} | {{ cat.contribution }} |
+{% endfor %}| **Composite** | **100%** | — | **{{ composite_score }}** |
+
+---
+
+{% for cat in categories %}
+## {{ loop.index }}. {{ cat.name }} (Score: {{ cat.raw_score }} — {{ cat.label }})
+
+| Metric | Current | Context | Assessment |
+|--------|---------|---------|------------|
+{% for m in cat.metrics %}| {{ m.name }} | {{ m.current }} | {{ m.context }} | {{ m.assessment }} |
+{% endfor %}
+
+{{ cat.narrative }}
+
+---
+{% endfor %}
+
+## Forward Return Expectations (Based on CAPE Regression)
+
+| Horizon | Expected Annual Real Return | Confidence |
+|---------|---------------------------|------------|
+{% for fr in forward_returns %}| {{ fr.horizon }} | **{{ fr.expected_return }}%** | {{ fr.confidence }} |
+{% endfor %}
+
+{{ forward_returns_narrative }}
+
+---
+
+## Tactical Assessment
+
+**Overall Stance: {{ tactical_stance }}**
+
+{{ tactical_narrative }}
+
+**Key tactical considerations:**
+{% for bullet in tactical_bullets %}
+- {{ bullet }}
+{% endfor %}
+
+---
+
+## Key Drivers This Week
+
+**5 Bearish Factors:**
+{% for factor in bearish_factors %}
+{{ loop.index }}. {{ factor }}
+{% endfor %}
+
+**5 Bullish Factors:**
+{% for factor in bullish_factors %}
+{{ loop.index }}. {{ factor }}
+{% endfor %}
+
+---
+
+## Summary
+
+{{ summary }}
+
+---
+
+*Report Date: {{ report_date }}*  
+*WCVS Methodology: Multi-factor composite across fundamental, technical, sentiment, credit, and macro dimensions*  
+*Data Sources: {{ data_sources }}*  
+*Disclaimer: For informational purposes only. Not investment advice.*

@@ -1,0 +1,64 @@
+{% extends "base.html.j2" %}
+{% block title %}Archive — WCVS Reports{% endblock %}
+{% block content %}
+<section class="archive-section">
+  <h1>Report Archive</h1>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="Severely Overvalued">Severe</button>
+    <button class="filter-btn" data-filter="Overvalued">Overvalued</button>
+    <button class="filter-btn" data-filter="Fairly Valued">Fair</button>
+    <button class="filter-btn" data-filter="Undervalued">Undervalued</button>
+  </div>
+  <table class="archive-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>S&P 500</th>
+        <th>Composite</th>
+        <th>Rating</th>
+        <th>Fundamental</th>
+        <th>Internals</th>
+        <th>Sentiment</th>
+        <th>Credit</th>
+        <th>Macro</th>
+        <th>PDF</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for report in reports %}
+      <tr data-rating="{{ report.rating_text }}">
+        <td><a href="{{ base_path }}/reports/{{ report.date }}/index.html">{{ report.date }}</a></td>
+        <td>{{ "{:,}".format(report.sp500_price|int) if report.sp500_price else '—' }}</td>
+        <td class="score-cell">{{ report.composite_score }}</td>
+        <td><span class="rating-pill {{ report.rating_class }}">{{ report.rating_text }}</span></td>
+        <td>{{ report.categories[0].raw_score if report.categories else '—' }}</td>
+        <td>{{ report.categories[1].raw_score if report.categories else '—' }}</td>
+        <td>{{ report.categories[2].raw_score if report.categories else '—' }}</td>
+        <td>{{ report.categories[3].raw_score if report.categories else '—' }}</td>
+        <td>{{ report.categories[4].raw_score if report.categories else '—' }}</td>
+        <td><a href="{{ base_path }}/reports/{{ report.date }}/wcvs-report-{{ report.date }}-full.pdf" target="_blank">PDF</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.archive-table tbody tr').forEach(row => {
+      if (filter === 'all' || row.dataset.rating.includes(filter)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WCVS Report — 2026-05-11</title>
+<style>/* WCVS Compact Report Styles — 3-Page A4 */
+@page { size: A4; margin: 0.5cm 0.7cm; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 7pt; line-height: 1.2; color: #1a1a1a; margin: 0; }
+.header { border-bottom: 1.5px solid #1a3a5c; padding-bottom: 3px; margin-bottom: 4px; }
+.header-title { font-size: 10pt; font-weight: 800; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
+.header-subtitle { font-size: 7pt; color: #666; margin-top: 1px; }
+.header-meta { font-size: 6pt; color: #999; margin-top: 2px; }
+.hero { background: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 100%); color: white; padding: 6px 10px; border-radius: 3px; margin: 4px 0; }
+.hero-label { font-size: 6.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.9; }
+.hero-score { font-size: 18pt; font-weight: 800; line-height: 1; margin: 2px 0; }
+.hero-rating { font-size: 7pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 1px 5px; border-radius: 2px; background: rgba(255,255,255,0.2); display: inline-block; margin-top: 1px; }
+.rating-red { color: #ff6b6b; }
+.rating-orange { color: #ffaa44; }
+.rating-green { color: #66dd66; }
+.category { margin: 4px 0; border-left: 2px solid #ddd; padding-left: 6px; }
+.cat-extreme { border-left-color: #cc3333; }
+.cat-expensive { border-left-color: #ff9933; }
+.cat-fair { border-left-color: #66aa66; }
+.cat-cheap { border-left-color: #33aa33; }
+.category-title { font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1px; color: #1a1a1a; }
+.category-summary { font-size: 6.5pt; color: #555; margin-bottom: 2px; padding: 2px 5px; background: #f8f9fa; border-radius: 2px; }
+table { width: 100%; border-collapse: collapse; font-size: 6pt; margin: 2px 0; }
+th { background: #1a3a5c; color: white; font-weight: 600; text-align: left; padding: 2px 4px; border: none; font-size: 5.5pt; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 2px 4px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) { background: #fafbfc; }
+td.numeric { text-align: right; font-family: "SF Mono", Monaco, monospace; font-size: 6pt; }
+td.score { font-weight: 700; text-align: center; }
+.score-red { color: #cc3333; }
+.score-orange { color: #ff7733; }
+.score-green { color: #66aa66; }
+.warning-box { background: #fff8e6; border: 1px solid #ffd966; border-radius: 2px; padding: 3px 6px; margin: 3px 0; }
+.warning-title { font-size: 6.5pt; font-weight: 700; color: #b38600; margin-bottom: 2px; }
+.warning-box ul { margin: 0; padding-left: 8px; font-size: 6.5pt; color: #664d00; }
+.key-box { background: #f0f7ff; border-radius: 2px; padding: 3px 6px; margin: 3px 0; }
+.key-title { font-size: 7pt; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 3px 0; }
+.key-box ul { margin: 0; padding-left: 8px; font-size: 6.5pt; }
+.key-box li { margin: 1px 0; color: #333; }
+.returns-section { margin: 4px 0; padding: 4px 8px; background: linear-gradient(135deg, #f8f9fa 0%, #eef1f5 100%); border-radius: 3px; border: 1px solid #e0e0e0; }
+.returns-title { font-size: 8pt; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+.returns-subtitle { font-size: 6pt; color: #666; margin-bottom: 2px; font-style: italic; }
+.returns-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 6.5pt; margin: 2px 0; }
+.returns-table th { background: #1a3a5c; color: white; font-weight: 600; text-align: center; padding: 2px 3px; border: none; font-size: 5.5pt; text-transform: uppercase; letter-spacing: 0.5px; }
+.returns-table th:first-child { border-radius: 2px 0 0 0; text-align: left; padding-left: 5px; }
+.returns-table th:last-child { border-radius: 0 2px 0 0; }
+.returns-table td { padding: 2px 3px; text-align: center; border-bottom: 1px solid #e0e0e0; font-weight: 600; font-family: "SF Mono", Monaco, monospace; font-size: 6.5pt; }
+.returns-table td:first-child { text-align: left; padding-left: 5px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 500; color: #444; }
+.returns-table tr:nth-child(even) { background: rgba(255,255,255,0.6); }
+.returns-table tr:last-child td:first-child { border-radius: 0 0 0 2px; }
+.returns-table tr:last-child td:last-child { border-radius: 0 0 2px 0; }
+.returns-table tr:last-child td { border-bottom: none; }
+.return-neg { color: #cc3333; }
+.return-low { color: #ff7733; }
+.return-mid { color: #cc9900; }
+.return-ok { color: #66aa66; }
+.return-good { color: #33aa33; }
+.scale-box { margin: 3px 0; padding: 3px 6px; background: #f8f9fa; border-radius: 2px; font-size: 6pt; }
+h1 { font-size: 10pt; font-weight: 800; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid #1a3a5c; padding-bottom: 3px; margin: 0 0 4px 0; }
+h2 { font-size: 7.5pt; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 6px 0 3px 0; padding-bottom: 2px; border-bottom: 1px solid #ddd; }
+h3 { font-size: 7pt; font-weight: 700; color: #333; margin: 3px 0 2px 0; }
+h4 { font-size: 6.5pt; font-weight: 700; color: #444; margin: 2px 0 1px 0; }
+hr { border: none; height: 1px; background: #e0e0e0; margin: 3px 0; }
+.footer { margin-top: 4px; padding-top: 3px; border-top: 1px solid #ddd; font-size: 5.5pt; color: #999; text-align: center; }
+p { margin: 2px 0; }
+ul { margin: 2px 0; padding-left: 10px; }
+li { margin: 1px 0; }
+@media print {
+  .hero, .category, tr:nth-child(even), .warning-box, .key-box, .returns-section, .scale-box {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+<body>
+<h1>WCVS Report — 2026-05-11</h1>
+<p><strong>Weighted Composite Valuation Score (WCVS)</strong><br />
+<em>A multi-factor valuation snapshot of the U.S. equity market</em></p>
+<table class="data-table">
+<thead>
+<tr>
+<th><strong>S&amp;P 500</strong></th>
+<th><strong>WCVS Composite</strong></th>
+<th><strong>Rating</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7,414</td>
+<td><strong>2.1 / 5.0</strong></td>
+<td>Overvalued / Risk-Adjusted Neutral</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>TL;DR</h2>
+<p>The U.S. equity market remains overvalued. The S&amp;P 500 closed at 7,414.4, with the WCVS composite score holding at <strong>2.1 out of 5.0</strong>. The forward return outlook remains cautious: expected real returns range from <strong>-0.1% annually over 1 year</strong> to <strong>0.0% over 10 years</strong>.</p>
+<hr />
+<h2>Composite Score Breakdown</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Weight</th>
+<th>Raw Score</th>
+<th>Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fundamental Valuation</td>
+<td>25%</td>
+<td>1.5</td>
+<td>0.38</td>
+</tr>
+<tr>
+<td>Market Internals</td>
+<td>20%</td>
+<td>3.0</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>Sentiment &amp; Psychology</td>
+<td>20%</td>
+<td>2.0</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>Credit &amp; Liquidity</td>
+<td>15%</td>
+<td>2.0</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>Macro &amp; Cross-Asset</td>
+<td>20%</td>
+<td>2.0</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td><strong>Composite</strong></td>
+<td><strong>100%</strong></td>
+<td>—</td>
+<td><strong>2.1</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="category cat-extreme"><h2 class="category-title">1. Fundamental Valuation (Score: 1.5 — Extreme)</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Context</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shiller CAPE</td>
+<td>40.1x</td>
+<td>95th percentile; mean 17.0x</td>
+<td>Extreme overvaluation</td>
+</tr>
+<tr>
+<td>Forward P/E (12M)</td>
+<td>21.0x</td>
+<td>Above 5-year average</td>
+<td>Elevated</td>
+</tr>
+<tr>
+<td>Market Cap / GDP</td>
+<td>~200.0%</td>
+<td>Record territory</td>
+<td>Extreme</td>
+</tr>
+</tbody>
+</table>
+<p>The CAPE ratio at 40.1x sits in extreme territory. Forward P/E of 21.0x implies aggressive earnings growth assumptions. Market cap relative to GDP at ~200.0% signals significant overvaluation.</p>
+<hr />
+<div class="category cat-fair"><h2 class="category-title">2. Market Internals (Score: 3.0 — Neutral)</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Context</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>% Stocks Above 50-Day MA</td>
+<td>~45.0%</td>
+<td>Deteriorating breadth</td>
+<td>Weak</td>
+</tr>
+<tr>
+<td>% Stocks Above 200-Day MA</td>
+<td>~55.0%</td>
+<td>Weak participation</td>
+<td>Weak</td>
+</tr>
+</tbody>
+</table>
+<p>Market breadth shows 45.0% of stocks above their 50-day MA and 55.0% above their 200-day MA, indicating narrowing participation and underlying weakness.</p>
+<hr />
+<div class="category cat-expensive"><h2 class="category-title">3. Sentiment &amp; Psychology (Score: 2.0 — Unfavorable)</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Context</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNN Fear &amp; Greed Index</td>
+<td>67 (Greed)</td>
+<td>Complacent; little fear priced</td>
+<td>Complacent</td>
+</tr>
+<tr>
+<td>NAAIM Exposure Index</td>
+<td>96.7%</td>
+<td>Extremely bullish</td>
+<td>Extreme</td>
+</tr>
+</tbody>
+</table>
+<p>Active managers remain nearly fully invested at 96.7% exposure. The Fear &amp; Greed Index at 67 signals greed territory with little hedging.</p>
+<hr />
+<div class="category cat-expensive"><h2 class="category-title">4. Credit &amp; Liquidity (Score: 2.0 — Unfavorable)</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Context</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10-Year Treasury Yield</td>
+<td>4.396%</td>
+<td>High real rates; equity headwind</td>
+<td>Tight</td>
+</tr>
+<tr>
+<td>10Y–2Y Spread</td>
+<td>-98.72 bps</td>
+<td>Flat curve; recession risk</td>
+<td>Tight</td>
+</tr>
+</tbody>
+</table>
+<p>The Treasury curve is flat with the 10Y–2Y spread at -98.72 bps. The 10-year yield at 4.396% creates a formidable competing asset for equities.</p>
+<hr />
+<div class="category cat-expensive"><h2 class="category-title">5. Macro &amp; Cross-Asset (Score: 2.0 — Unfavorable)</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current</th>
+<th>Context</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U.S. Dollar (DXY)</td>
+<td>97.881</td>
+<td>Weak dollar; supports exports but signals relative decline</td>
+<td>Weak</td>
+</tr>
+<tr>
+<td>Oil (WTI)</td>
+<td>$97.7/bbl</td>
+<td>High energy costs; margin pressure</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>Oil at $97.7 with the dollar at 97.881 creates a stagflationary crosswind. Gold at $4738.5 signals safe-haven demand.</p>
+<hr />
+<h2>Forward Return Expectations (Based on CAPE Regression)</h2>
+<table>
+<thead>
+<tr>
+<th>Horizon</th>
+<th>Expected Annual Real Return</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Year</td>
+<td><strong>-0.1%</strong></td>
+<td>Low</td>
+</tr>
+<tr>
+<td>3 Years</td>
+<td><strong>-0.1%</strong></td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>5 Years</td>
+<td><strong>-0.1%</strong></td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>10 Years</td>
+<td><strong>0.0%</strong></td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>15 Years</td>
+<td><strong>0.0%</strong></td>
+<td>Higher</td>
+</tr>
+</tbody>
+</table>
+<p>At a CAPE of 40.1x, historical regression points to positive real returns across most horizons. The 10-year expected real return of 0.0% annually implies a cumulative gain over a decade.</p>
+<hr />
+<h2>Tactical Assessment</h2>
+<p><strong>Overall Stance: Cautious</strong></p>
+<p>The market is priced for optimism. Every category in the WCVS framework signals elevated risk. This is the classic setup for a surprise to the downside.</p>
+<p><strong>Key tactical considerations:</strong></p>
+<ul>
+<li>
+<p>Equity risk premium (~0.37% over 10-year Treasuries) offers minimal compensation</p>
+</li>
+<li>
+<p>Market breadth at 55.0% above 200-day MA suggests the index is masking underlying weakness</p>
+</li>
+<li>
+<p>Oil at $97.7 with elevated energy costs is a live risk</p>
+</li>
+<li>
+<p>Active managers at 96.7% equity exposure indicate no incremental buyers left</p>
+</li>
+<li>
+<p>The 4.396% 10-year yield with a -98.72 bps curve suggests recession risk</p>
+</li>
+</ul>
+<hr />
+<div class="key-box"><h3 class="key-title">Key Drivers This Week</h3><h2>Key Drivers This Week</h2>
+<p><strong>5 Bearish Factors:</strong></p>
+<ol>
+<li>
+<p>CAPE at 40.1x — in the 95th percentile, exceeded only during dot-com</p>
+</li>
+<li>
+<p>Forward P/E 21.0x requires aggressive earnings growth; margins are compressing</p>
+</li>
+<li>
+<p>NAAIM at 96.7% — managers are fully invested; no dry powder</p>
+</li>
+<li>
+<p>Oil at $97.7 with sticky inflation; energy cost pressure rising</p>
+</li>
+<li>
+<p>10Y yield at 4.396% with equity risk premium near historic lows</p>
+</li>
+</ol>
+<p><strong>5 Bullish Factors:</strong></p>
+<ol>
+<li>
+<p>S&amp;P 500 holding near highs; trend remains technically intact</p>
+</li>
+<li>
+<p>Breadth at 55.0% still positive on long-term timeframe</p>
+</li>
+<li>
+<p>Fear &amp; Greed at 67 shows no panic, supporting orderly conditions</p>
+</li>
+<li>
+<p>Fed policy expectations point to possible easing if data softens</p>
+</li>
+<li>
+<p>AI-driven earnings growth narrative still intact for mega-caps</p>
+</li>
+</ol>
+<hr />
+</div><h2>Summary</h2>
+<p>The WCVS composite of <strong>2.1 / 5.0</strong> places the U.S. equity market in "Overvalued / Risk-Adjusted Neutral" territory. The combination of extreme fundamental valuations, mixed internals, complacent sentiment, and a fragile macro backdrop creates an asymmetric risk profile. Forward returns are expected to be modest across all horizons. Patience and capital preservation should take priority over chasing momentum at these levels.</p>
+<hr />
+<p><em>Report Date: 2026-05-11</em><br />
+<em>WCVS Methodology: Multi-factor composite across fundamental, technical, sentiment, credit, and macro dimensions</em><br />
+<em>Data Sources: GuruFocus, FactSet, YCharts, CBOE, AAII, NAAIM, U.S. Treasury, Yahoo Finance, macromicro.me</em><br />
+<em>Disclaimer: For informational purposes only. Not investment advice.</em></p>
+<div class="footer">
+WCVS Report | Generated 2026-05-11 | Not financial advice
+</div>
+</body>
+</html>

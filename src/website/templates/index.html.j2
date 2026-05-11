@@ -1,0 +1,63 @@
+{% extends "base.html.j2" %}
+{% block title %}WCVS — U.S. Equity Valuation Dashboard{% endblock %}
+{% block content %}
+<section class="hero-section">
+  <div class="hero-card">
+    <div class="hero-meta">Latest Report — {{ latest.date if latest else 'N/A' }}</div>
+    <div class="hero-score-display">{{ latest.composite_score if latest else '—' }}</div>
+    <div class="hero-rating {{ latest.rating_class if latest else '' }}">{{ latest.rating_text if latest else 'No Data' }}</div>
+    <div class="hero-sp500">S&P 500: {{ "{:,}".format(latest.sp500_price|int) if latest else '—' }}</div>
+    <a class="hero-cta" href="{{ base_path }}/reports/{{ latest.date }}/index.html" {% if not latest %}style="display:none"{% endif %}>Read Full Report →</a>
+  </div>
+  <div class="sparkline-card">
+    <h3>30-Day Score History</h3>
+    <canvas id="sparkline" height="120"></canvas>
+  </div>
+</section>
+
+<section class="quick-stats">
+  <div class="stat-box">
+    <div class="stat-label">Reports</div>
+    <div class="stat-value">{{ report_count }}</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Current Stance</div>
+    <div class="stat-value">{{ latest.tactical_stance if latest else '—' }}</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">10Y Expected Return</div>
+    <div class="stat-value">
+      {% if latest and latest.forward_returns %}
+        {% for fr in latest.forward_returns %}
+          {% if '10 Year' in fr.horizon %}{{ fr.expected_return }}%{% endif %}
+        {% endfor %}
+      {% else %}—{% endif %}
+    </div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-label">Data Sources</div>
+    <div class="stat-value">15+</div>
+  </div>
+</section>
+
+<section class="recent-reports">
+  <h2>Recent Reports</h2>
+  <div class="report-grid">
+    {% for report in reports[:7] %}
+    <a class="report-tile" href="{{ base_path }}/reports/{{ report.date }}/index.html">
+      <div class="tile-date">{{ report.date }}</div>
+      <div class="tile-score">{{ report.composite_score }}</div>
+      <div class="tile-rating {{ report.rating_class }}">{{ report.rating_text }}</div>
+    </a>
+    {% endfor %}
+  </div>
+  <p class="archive-link"><a href="/archive/index.html">View all reports →</a></p>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ base_path }}/assets/chart.js"></script>
+<script>
+const sparklineData = {{ sparkline_data | tojson }};
+renderSparkline('sparkline', sparklineData);
+</script>
+{% endblock %}

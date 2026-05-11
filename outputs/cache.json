@@ -1,0 +1,37 @@
+{
+  "sp500_price": {
+    "value": 7414.4,
+    "timestamp": 1778512608.0134614,
+    "source": "live"
+  },
+  "yield_10y": {
+    "value": 4.396,
+    "timestamp": 1778512610.449049,
+    "source": "live"
+  },
+  "yield_2y": {
+    "value": 103.12,
+    "timestamp": 1778512610.4978137,
+    "source": "live"
+  },
+  "yield_3m": {
+    "value": 3.6,
+    "timestamp": 1778512610.5542748,
+    "source": "live"
+  },
+  "dxy": {
+    "value": 97.881,
+    "timestamp": 1778512610.6232312,
+    "source": "live"
+  },
+  "wti": {
+    "value": 97.7,
+    "timestamp": 1778512610.6816564,
+    "source": "live"
+  },
+  "gold": {
+    "value": 4738.5,
+    "timestamp": 1778512610.7534654,
+    "source": "live"
+  }
+}

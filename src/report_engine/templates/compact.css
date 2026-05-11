@@ -1,0 +1,71 @@
+/* WCVS Compact Report Styles — 3-Page A4 */
+@page { size: A4; margin: 0.5cm 0.7cm; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 7pt; line-height: 1.2; color: #1a1a1a; margin: 0; }
+.header { border-bottom: 1.5px solid #1a3a5c; padding-bottom: 3px; margin-bottom: 4px; }
+.header-title { font-size: 10pt; font-weight: 800; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
+.header-subtitle { font-size: 7pt; color: #666; margin-top: 1px; }
+.header-meta { font-size: 6pt; color: #999; margin-top: 2px; }
+.hero { background: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 100%); color: white; padding: 6px 10px; border-radius: 3px; margin: 4px 0; }
+.hero-label { font-size: 6.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.9; }
+.hero-score { font-size: 18pt; font-weight: 800; line-height: 1; margin: 2px 0; }
+.hero-rating { font-size: 7pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 1px 5px; border-radius: 2px; background: rgba(255,255,255,0.2); display: inline-block; margin-top: 1px; }
+.rating-red { color: #ff6b6b; }
+.rating-orange { color: #ffaa44; }
+.rating-green { color: #66dd66; }
+.category { margin: 4px 0; border-left: 2px solid #ddd; padding-left: 6px; }
+.cat-extreme { border-left-color: #cc3333; }
+.cat-expensive { border-left-color: #ff9933; }
+.cat-fair { border-left-color: #66aa66; }
+.cat-cheap { border-left-color: #33aa33; }
+.category-title { font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1px; color: #1a1a1a; }
+.category-summary { font-size: 6.5pt; color: #555; margin-bottom: 2px; padding: 2px 5px; background: #f8f9fa; border-radius: 2px; }
+table { width: 100%; border-collapse: collapse; font-size: 6pt; margin: 2px 0; }
+th { background: #1a3a5c; color: white; font-weight: 600; text-align: left; padding: 2px 4px; border: none; font-size: 5.5pt; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 2px 4px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:nth-child(even) { background: #fafbfc; }
+td.numeric { text-align: right; font-family: "SF Mono", Monaco, monospace; font-size: 6pt; }
+td.score { font-weight: 700; text-align: center; }
+.score-red { color: #cc3333; }
+.score-orange { color: #ff7733; }
+.score-green { color: #66aa66; }
+.warning-box { background: #fff8e6; border: 1px solid #ffd966; border-radius: 2px; padding: 3px 6px; margin: 3px 0; }
+.warning-title { font-size: 6.5pt; font-weight: 700; color: #b38600; margin-bottom: 2px; }
+.warning-box ul { margin: 0; padding-left: 8px; font-size: 6.5pt; color: #664d00; }
+.key-box { background: #f0f7ff; border-radius: 2px; padding: 3px 6px; margin: 3px 0; }
+.key-title { font-size: 7pt; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 3px 0; }
+.key-box ul { margin: 0; padding-left: 8px; font-size: 6.5pt; }
+.key-box li { margin: 1px 0; color: #333; }
+.returns-section { margin: 4px 0; padding: 4px 8px; background: linear-gradient(135deg, #f8f9fa 0%, #eef1f5 100%); border-radius: 3px; border: 1px solid #e0e0e0; }
+.returns-title { font-size: 8pt; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+.returns-subtitle { font-size: 6pt; color: #666; margin-bottom: 2px; font-style: italic; }
+.returns-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 6.5pt; margin: 2px 0; }
+.returns-table th { background: #1a3a5c; color: white; font-weight: 600; text-align: center; padding: 2px 3px; border: none; font-size: 5.5pt; text-transform: uppercase; letter-spacing: 0.5px; }
+.returns-table th:first-child { border-radius: 2px 0 0 0; text-align: left; padding-left: 5px; }
+.returns-table th:last-child { border-radius: 0 2px 0 0; }
+.returns-table td { padding: 2px 3px; text-align: center; border-bottom: 1px solid #e0e0e0; font-weight: 600; font-family: "SF Mono", Monaco, monospace; font-size: 6.5pt; }
+.returns-table td:first-child { text-align: left; padding-left: 5px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 500; color: #444; }
+.returns-table tr:nth-child(even) { background: rgba(255,255,255,0.6); }
+.returns-table tr:last-child td:first-child { border-radius: 0 0 0 2px; }
+.returns-table tr:last-child td:last-child { border-radius: 0 0 2px 0; }
+.returns-table tr:last-child td { border-bottom: none; }
+.return-neg { color: #cc3333; }
+.return-low { color: #ff7733; }
+.return-mid { color: #cc9900; }
+.return-ok { color: #66aa66; }
+.return-good { color: #33aa33; }
+.scale-box { margin: 3px 0; padding: 3px 6px; background: #f8f9fa; border-radius: 2px; font-size: 6pt; }
+h1 { font-size: 10pt; font-weight: 800; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid #1a3a5c; padding-bottom: 3px; margin: 0 0 4px 0; }
+h2 { font-size: 7.5pt; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 6px 0 3px 0; padding-bottom: 2px; border-bottom: 1px solid #ddd; }
+h3 { font-size: 7pt; font-weight: 700; color: #333; margin: 3px 0 2px 0; }
+h4 { font-size: 6.5pt; font-weight: 700; color: #444; margin: 2px 0 1px 0; }
+hr { border: none; height: 1px; background: #e0e0e0; margin: 3px 0; }
+.footer { margin-top: 4px; padding-top: 3px; border-top: 1px solid #ddd; font-size: 5.5pt; color: #999; text-align: center; }
+p { margin: 2px 0; }
+ul { margin: 2px 0; padding-left: 10px; }
+li { margin: 1px 0; }
+@media print {
+  .hero, .category, tr:nth-child(even), .warning-box, .key-box, .returns-section, .scale-box {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

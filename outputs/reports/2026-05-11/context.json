@@ -1,0 +1,180 @@
+{
+  "report_date": "2026-05-11",
+  "sp500_price": 7414.4,
+  "composite_score": 2.1,
+  "rating_text": "Overvalued / Risk-Adjusted Neutral",
+  "rating_class": "rating-orange",
+  "categories": [
+    {
+      "name": "Fundamental Valuation",
+      "weight": 25,
+      "raw_score": 1.5,
+      "contribution": 0.38,
+      "label": "Extreme",
+      "metrics": [
+        {
+          "name": "Shiller CAPE",
+          "current": "40.1x",
+          "context": "95th percentile; mean 17.0x",
+          "assessment": "Extreme overvaluation"
+        },
+        {
+          "name": "Forward P/E (12M)",
+          "current": "21.0x",
+          "context": "Above 5-year average",
+          "assessment": "Elevated"
+        },
+        {
+          "name": "Market Cap / GDP",
+          "current": "~200.0%",
+          "context": "Record territory",
+          "assessment": "Extreme"
+        }
+      ],
+      "narrative": "The CAPE ratio at 40.1x sits in extreme territory. Forward P/E of 21.0x implies aggressive earnings growth assumptions. Market cap relative to GDP at ~200.0% signals significant overvaluation."
+    },
+    {
+      "name": "Market Internals",
+      "weight": 20,
+      "raw_score": 3.0,
+      "contribution": 0.6,
+      "label": "Neutral",
+      "metrics": [
+        {
+          "name": "% Stocks Above 50-Day MA",
+          "current": "~45.0%",
+          "context": "Deteriorating breadth",
+          "assessment": "Weak"
+        },
+        {
+          "name": "% Stocks Above 200-Day MA",
+          "current": "~55.0%",
+          "context": "Weak participation",
+          "assessment": "Weak"
+        }
+      ],
+      "narrative": "Market breadth shows 45.0% of stocks above their 50-day MA and 55.0% above their 200-day MA, indicating narrowing participation and underlying weakness."
+    },
+    {
+      "name": "Sentiment & Psychology",
+      "weight": 20,
+      "raw_score": 2.0,
+      "contribution": 0.4,
+      "label": "Unfavorable",
+      "metrics": [
+        {
+          "name": "CNN Fear & Greed Index",
+          "current": "67 (Greed)",
+          "context": "Complacent; little fear priced",
+          "assessment": "Complacent"
+        },
+        {
+          "name": "NAAIM Exposure Index",
+          "current": "96.7%",
+          "context": "Extremely bullish",
+          "assessment": "Extreme"
+        }
+      ],
+      "narrative": "Active managers remain nearly fully invested at 96.7% exposure. The Fear & Greed Index at 67 signals greed territory with little hedging."
+    },
+    {
+      "name": "Credit & Liquidity",
+      "weight": 15,
+      "raw_score": 2.0,
+      "contribution": 0.3,
+      "label": "Unfavorable",
+      "metrics": [
+        {
+          "name": "10-Year Treasury Yield",
+          "current": "4.396%",
+          "context": "High real rates; equity headwind",
+          "assessment": "Tight"
+        },
+        {
+          "name": "10Y\u20132Y Spread",
+          "current": "-98.72 bps",
+          "context": "Flat curve; recession risk",
+          "assessment": "Tight"
+        }
+      ],
+      "narrative": "The Treasury curve is flat with the 10Y\u20132Y spread at -98.72 bps. The 10-year yield at 4.396% creates a formidable competing asset for equities."
+    },
+    {
+      "name": "Macro & Cross-Asset",
+      "weight": 20,
+      "raw_score": 2.0,
+      "contribution": 0.4,
+      "label": "Unfavorable",
+      "metrics": [
+        {
+          "name": "U.S. Dollar (DXY)",
+          "current": "97.881",
+          "context": "Weak dollar; supports exports but signals relative decline",
+          "assessment": "Weak"
+        },
+        {
+          "name": "Oil (WTI)",
+          "current": "$97.7/bbl",
+          "context": "High energy costs; margin pressure",
+          "assessment": "High"
+        }
+      ],
+      "narrative": "Oil at $97.7 with the dollar at 97.881 creates a stagflationary crosswind. Gold at $4738.5 signals safe-haven demand."
+    }
+  ],
+  "forward_returns": [
+    {
+      "horizon": "1 Year",
+      "expected_return": "-0.1",
+      "confidence": "Low"
+    },
+    {
+      "horizon": "3 Years",
+      "expected_return": "-0.1",
+      "confidence": "Moderate"
+    },
+    {
+      "horizon": "5 Years",
+      "expected_return": "-0.1",
+      "confidence": "Moderate"
+    },
+    {
+      "horizon": "10 Years",
+      "expected_return": "0.0",
+      "confidence": "Higher"
+    },
+    {
+      "horizon": "15 Years",
+      "expected_return": "0.0",
+      "confidence": "Higher"
+    }
+  ],
+  "forward_returns_narrative": "At a CAPE of 40.1x, historical regression points to positive real returns across most horizons. The 10-year expected real return of 0.0% annually implies a cumulative gain over a decade.",
+  "tactical_stance": "Cautious",
+  "tactical_narrative": "The market is priced for optimism. Every category in the WCVS framework signals elevated risk. This is the classic setup for a surprise to the downside.",
+  "tactical_bullets": [
+    "Equity risk premium (~0.37% over 10-year Treasuries) offers minimal compensation",
+    "Market breadth at 55.0% above 200-day MA suggests the index is masking underlying weakness",
+    "Oil at $97.7 with elevated energy costs is a live risk",
+    "Active managers at 96.7% equity exposure indicate no incremental buyers left",
+    "The 4.396% 10-year yield with a -98.72 bps curve suggests recession risk"
+  ],
+  "bearish_factors": [
+    "CAPE at 40.1x \u2014 in the 95th percentile, exceeded only during dot-com",
+    "Forward P/E 21.0x requires aggressive earnings growth; margins are compressing",
+    "NAAIM at 96.7% \u2014 managers are fully invested; no dry powder",
+    "Oil at $97.7 with sticky inflation; energy cost pressure rising",
+    "10Y yield at 4.396% with equity risk premium near historic lows"
+  ],
+  "bullish_factors": [
+    "S&P 500 holding near highs; trend remains technically intact",
+    "Breadth at 55.0% still positive on long-term timeframe",
+    "Fear & Greed at 67 shows no panic, supporting orderly conditions",
+    "Fed policy expectations point to possible easing if data softens",
+    "AI-driven earnings growth narrative still intact for mega-caps"
+  ],
+  "summary": "The WCVS composite of **2.1 / 5.0** places the U.S. equity market in \"Overvalued / Risk-Adjusted Neutral\" territory. The combination of extreme fundamental valuations, mixed internals, complacent sentiment, and a fragile macro backdrop creates an asymmetric risk profile. Forward returns are expected to be modest across all horizons. Patience and capital preservation should take priority over chasing momentum at these levels.",
+  "tldr": "The U.S. equity market remains overvalued. The S&P 500 closed at 7,414.4, with the WCVS composite score holding at **2.1 out of 5.0**. The forward return outlook remains cautious: expected real returns range from **-0.1% annually over 1 year** to **0.0% over 10 years**.",
+  "data_sources": "GuruFocus, FactSet, YCharts, CBOE, AAII, NAAIM, U.S. Treasury, Yahoo Finance, macromicro.me",
+  "analyst_name": "WCVS Multi-Agent System"
+}

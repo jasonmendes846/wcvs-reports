@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WCVS Report — May 3, 2026</title>
+  <style>
+    @page { size: A4; margin: 1.5cm 1.8cm; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 10pt; line-height: 1.5; color: #1a1a1a;
+    }
+    .header { border-bottom: 3px solid #1a3a5c; padding-bottom: 12px; margin-bottom: 20px; }
+    .header-title { font-size: 18pt; font-weight: 800; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
+    .header-subtitle { font-size: 11pt; color: #666; margin-top: 4px; }
+    .header-meta { font-size: 9pt; color: #999; margin-top: 8px; }
+    .hero { background: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 100%); color: white; padding: 20px 24px; border-radius: 8px; margin: 20px 0; }
+    .hero-label { font-size: 11pt; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; }
+    .hero-score { font-size: 42pt; font-weight: 800; line-height: 1; margin: 8px 0; }
+    .hero-rating { font-size: 14pt; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 4px 12px; border-radius: 4px; background: rgba(255,255,255,0.2); display: inline-block; margin-top: 6px; }
+    .rating-red { color: #ff6b6b; }
+    .rating-orange { color: #ffaa44; }
+    .rating-green { color: #66dd66; }
+    .category { margin: 24px 0; border-left: 4px solid #ddd; padding-left: 16px; }
+    .cat-extreme { border-left-color: #cc3333; }
+    .cat-expensive { border-left-color: #ff9933; }
+    .cat-fair { border-left-color: #66aa66; }
+    .cat-cheap { border-left-color: #33aa33; }
+    .category-title { font-size: 12pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; color: #1a1a1a; }
+    .category-summary { font-size: 9.5pt; color: #555; margin-bottom: 12px; padding: 8px 12px; background: #f8f9fa; border-radius: 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 10px 0; }
+    th { background: #f0f2f5; font-weight: 600; text-align: left; padding: 8px 10px; border-bottom: 2px solid #ddd; color: #444; text-transform: uppercase; font-size: 8.5pt; letter-spacing: 0.5px; }
+    td { padding: 7px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+    tr:nth-child(even) { background: #fafbfc; }
+    td.numeric { text-align: right; font-family: "SF Mono", Monaco, monospace; font-size: 9pt; }
+    td.score { font-weight: 700; text-align: center; }
+    .score-red { color: #cc3333; }
+    .score-orange { color: #ff7733; }
+    .score-green { color: #66aa66; }
+    .updated-tag { background: #e8f4fd; color: #0066cc; font-size: 7.5pt; font-weight: 700; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; letter-spacing: 0.5px; }
+    .warning-box { background: #fff8e6; border: 1px solid #ffd966; border-radius: 6px; padding: 12px 16px; margin: 16px 0; }
+    .warning-title { font-size: 10pt; font-weight: 700; color: #b38600; margin-bottom: 8px; }
+    .warning-box ul { margin: 0; padding-left: 18px; font-size: 9.5pt; color: #664d00; }
+    .key-box { background: #f0f7ff; border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+    .key-title { font-size: 11pt; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 10px 0; }
+    .key-box ul { margin: 0; padding-left: 18px; font-size: 9.5pt; }
+    .key-box li { margin: 5px 0; color: #333; }
+    .news-item { margin: 10px 0; padding: 10px 12px; background: #fafbfc; border-radius: 4px; border-left: 3px solid #ddd; }
+    .news-headline { font-weight: 700; font-size: 9.5pt; color: #1a1a1a; margin-bottom: 3px; }
+    .news-detail { font-size: 9pt; color: #555; margin-bottom: 3px; }
+    .news-source { font-size: 8pt; color: #999; font-style: italic; }
+    .return-box { text-align: center; padding: 14px; background: #f8f9fa; border-radius: 6px; margin: 16px 0; font-size: 10pt; color: #555; }
+    .return-box strong { color: #1a1a1a; font-size: 11pt; }
+    .footer { margin-top: 30px; padding-top: 12px; border-top: 1px solid #ddd; font-size: 8pt; color: #999; text-align: center; }
+    hr.section { border: none; height: 1px; background: #e0e0e0; margin: 24px 0; }
+    @media print {
+      .hero, .category, tr:nth-child(even), .warning-box, .key-box, .news-item, .return-box {
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">WCVS — Weighted Composite Valuation Score</div>
+  <div class="header-subtitle">U.S. Equity Market Valuation Assessment</div>
+  <div class="header-meta">Report Date: May 3, 2026 | Data as of: May 1, 2026 (Friday Close) | Analyst: Kimi Claw</div>
+</div>
+
+<div class="hero">
+  <div class="hero-label">Composite Score</div>
+  <div class="hero-score">2.3<span style="font-size:18pt;opacity:0.7"> / 5.0</span></div>
+  <div class="hero-rating rating-orange">Overvalued / Risk-Adjusted Neutral</div>
+</div>
+
+<table>
+  <tr><th>Score</th><th>Interpretation</th></tr>
+  <tr><td class="score score-red">1.0–1.9</td><td>Severely Overvalued / High Crash Risk</td></tr>
+  <tr style="background:#fff8e6"><td class="score score-orange"><strong>2.0–3.0</strong></td><td><strong>Overvalued / Risk-Adjusted Neutral</strong> ← Current</td></tr>
+  <tr><td class="score score-green">3.1–4.0</td><td>Fairly Valued / Balanced Risk-Reward</td></tr>
+  <tr><td class="score score-green">4.1–5.0</td><td>Undervalued / Attractive Entry</td></tr>
+</table>
+
+<p style="font-size:9.5pt;color:#555;margin:12px 0;">
+The US equity market remains structurally overvalued with a WCVS of <strong>2.3</strong>, unchanged from the prior reading. Valuation multiples are extreme (CAPE 41x, P/S 3.6x, Buffett Indicator 201%), sentiment is greedy (Fear &amp; Greed 67), and positioning is complacent (Put/Call 0.46). However, market breadth and technical internals remain healthy (NH/NL 8.3:1, A/D 4.1:1), preventing a lower score. Credit markets are serene (HY spreads 2.83%, near historic tights), indicating no imminent recession.
+</p>
+
+<p style="font-size:9.5pt;color:#333;margin:8px 0;padding:8px 12px;background:#f8f9fa;border-radius:4px;">
+<strong>TL;DR:</strong> Expensive, but not fragile. Not a crash setup yet — more like a "priced for perfection" grind higher until something breaks.
+</p>
+
+<hr class="section">
+
+<div class="category cat-extreme">
+  <div class="category-title">Category A — Fundamental Valuation [40%] → Weighted: 0.54 / 2.00</div>
+  <div class="category-summary">
+    <strong>Subtotal:</strong> 1.35 × 40% = <strong>0.54</strong> | 
+    <strong>Sources:</strong> multpl.com (CAPE), FactSet (Fwd P/E via Finviz), GuruFocus (P/S, P/B, Tobin Q), ycharts.com
+  </div>
+  <table>
+    <tr><th>Metric</th><th>Current</th><th>Historical Avg</th><th>Z-Score / Percentile</th><th class="score">Score</th><th>Weight</th></tr>
+    <tr><td>Shiller CAPE</td><td class="numeric"><strong>41.06</strong></td><td class="numeric">16.9</td><td>+3.5σ (99.9th)</td><td class="score score-red">1</td><td>25%</td></tr>
+    <tr><td>Forward P/E</td><td class="numeric"><strong>20.9x</strong></td><td class="numeric">15.5x</td><td>+1.0σ (85th)</td><td class="score score-orange">2</td><td>25%</td></tr>
+    <tr><td>Price/Sales</td><td class="numeric"><strong>3.56x</strong></td><td class="numeric">1.5x</td><td>+3.0σ (99th)</td><td class="score score-red">1</td><td>20%</td></tr>
+    <tr><td>Price/Book</td><td class="numeric"><strong>~5.4x</strong></td><td class="numeric">3.0x</td><td>+2.0σ (98th)</td><td class="score score-red">1</td><td>20%</td></tr>
+    <tr><td>Tobin's Q</td><td class="numeric"><strong>~1.17</strong></td><td class="numeric">0.65</td><td>+1.5σ (95th)</td><td class="score score-orange">2</td><td>10%</td></tr>
+  </table>
+</div>
+
+<div class="category cat-fair">
+  <div class="category-title">Category B — Macro &amp; Interest Rates [25%] → Weighted: 0.65 / 1.25</div>
+  <div class="category-summary">
+    <strong>Subtotal:</strong> 2.60 × 25% = <strong>0.65</strong> | 
+    <strong>Sources:</strong> FRED (DGS10, DGS2, BAMLH0A0HYM2), AhaSignals, TradingEconomics
+  </div>
+  <table>
+    <tr><th>Metric</th><th>Current</th><th>Signal</th><th class="score">Score</th><th>Weight</th></tr>
+    <tr><td>10Y Treasury Yield</td><td class="numeric"><strong>4.39%</strong></td><td>Restrictive (&gt;4%)</td><td class="score score-orange">2</td><td>30%</td></tr>
+    <tr><td>Yield Curve (10Y–2Y)</td><td class="numeric"><strong>+51 bps</strong></td><td>Positive but narrow</td><td class="score score-green">3</td><td>25%</td></tr>
+    <tr><td>IG Credit Spread (OAS)</td><td class="numeric"><strong>~1.0%</strong></td><td>Normal</td><td class="score score-green">3</td><td>20%</td></tr>
+    <tr><td>HY Credit Spread (OAS)</td><td class="numeric"><strong>2.83%</strong></td><td>Historically tight</td><td class="score score-green">3</td><td>15%</td></tr>
+    <tr><td>Fed Funds Rate</td><td class="numeric"><strong>~4.33%</strong></td><td>Restrictive</td><td class="score score-orange">2</td><td>10%</td></tr>
+  </table>
+  <p style="font-size:9pt;color:#666;margin:8px 0;">
+    Note: The yield curve has re-steepened to +51bps after inverting in 2025. This removes the recession signal but replaces it with a "higher for longer" rates headwind. Credit spreads remain comically tight (HY 2.83% vs historical avg 5.19%), showing bond markets have zero fear.
+  </p>
+</div>
+
+<div class="category cat-fair">
+  <div class="category-title">Category C — Market Breadth &amp; Internals [15%] → Weighted: 0.64 / 0.75</div>
+  <div class="category-summary">
+    <strong>Subtotal:</strong> 4.25 × 15% = <strong>0.64</strong> | 
+    <strong>Sources:</strong> Barron's Market Lab, macromicro.me, Yahoo Finance, Barchart
+  </div>
+  <table>
+    <tr><th>Metric</th><th>Current</th><th>Signal</th><th class="score">Score</th><th>Weight</th></tr>
+    <tr><td>% S&amp;P 500 &gt; 200-DMA</td><td class="numeric"><strong>~75%</strong></td><td>Strong</td><td class="score score-green">4</td><td>25%</td></tr>
+    <tr><td>NYSE A/D Line</td><td class="numeric"><strong>Positive</strong></td><td>Advancing</td><td class="score score-green">4</td><td>25%</td></tr>
+    <tr><td>NYSE New Highs/New Lows</td><td class="numeric"><strong>465 / 56 = 8.3:1</strong></td><td>Strongly bullish</td><td class="score score-green">5</td><td>25%</td></tr>
+    <tr><td>SPX vs 200-DMA</td><td class="numeric"><strong>+8.4%</strong></td><td>Comfortable cushion</td><td class="score score-green">4</td><td>25%</td></tr>
+  </table>
+</div>
+
+<div class="category cat-extreme">
+  <div class="category-title">Category D — Sentiment &amp; Positioning [12%] → Weighted: 0.24 / 0.60</div>
+  <div class="category-summary">
+    <strong>Subtotal:</strong> 2.00 × 12% = <strong>0.24</strong> | 
+    <strong>Sources:</strong> CNN Money, AAII, CBOE (via ycharts), io-fund.com
+  </div>
+  <table>
+    <tr><th>Metric</th><th>Current</th><th>Signal</th><th class="score">Score</th><th>Weight</th></tr>
+    <tr><td>CNN Fear &amp; Greed</td><td class="numeric"><strong>67</strong> (Greed)</td><td>Elevated</td><td class="score score-orange">2</td><td>30%</td></tr>
+    <tr><td>AAII Bull-Bear Spread</td><td class="numeric"><strong>~+10</strong></td><td>Modestly bullish</td><td class="score score-green">3</td><td>25%</td></tr>
+    <tr><td>CBOE Equity Put/Call (10d MA)</td><td class="numeric"><strong>0.85</strong></td><td>Low (complacency)</td><td class="score score-red">1</td><td>25%</td></tr>
+    <tr><td>Margin Debt / GDP</td><td class="numeric"><strong>~3.5%</strong></td><td>Near record</td><td class="score score-red">1</td><td>20%</td></tr>
+  </table>
+  <p style="font-size:9pt;color:#666;margin:8px 0;">
+    Note: The Put/Call ratio at 0.46 (daily) / 0.85 (10-day MA) is in the bottom decile historically. Combined with Fear &amp; Greed at 67 and record margin debt, this is a "nobody's worried" setup. The only saving grace is that AAII isn't wildly bullish — just moderately so.
+  </p>
+</div>
+
+<div class="category cat-expensive">
+  <div class="category-title">Category E — Macro Cycle &amp; Credit Conditions [8%] → Weighted: 0.19 / 0.40</div>
+  <div class="category-summary">
+    <strong>Subtotal:</strong> 2.40 × 8% = <strong>0.19</strong> | 
+    <strong>Sources:</strong> macromicro.me, FRED, Gurufocus, Barron's, MarketWatch
+  </div>
+  <table>
+    <tr><th>Metric</th><th>Current</th><th>Signal</th><th class="score">Score</th><th>Weight</th></tr>
+    <tr><td>Buffett Indicator (TMC/GDP)</td><td class="numeric"><strong>~201%</strong></td><td>Significantly overvalued (&gt;150%)</td><td class="score score-red">1</td><td>30%</td></tr>
+    <tr><td>HY Credit Spread</td><td class="numeric"><strong>2.83%</strong></td><td>Tight — no stress</td><td class="score score-green">3</td><td>20%</td></tr>
+    <tr><td>Yield Curve Shape</td><td class="numeric"><strong>+51 bps</strong></td><td>Normalized</td><td class="score score-green">3</td><td>20%</td></tr>
+    <tr><td>Macro Momentum (ISM, jobs, earnings)</td><td class="numeric"><strong>Mixed</strong></td><td>Soft landing narrative</td><td class="score score-green">3</td><td>30%</td></tr>
+  </table>
+</div>
+
+<hr class="section">
+
+<div class="key-box">
+  <div class="key-title">WCVS Composite Calculation</div>
+  <table>
+    <tr><th>Category</th><th>Raw Score</th><th>Weight</th><th class="numeric">Weighted</th></tr>
+    <tr><td>A — Fundamental Valuation</td><td class="score score-red">1.35</td><td>40%</td><td class="numeric">0.54</td></tr>
+    <tr><td>B — Macro &amp; Interest Rates</td><td class="score score-green">2.60</td><td>25%</td><td class="numeric">0.65</td></tr>
+    <tr><td>C — Market Breadth</td><td class="score score-green">4.25</td><td>15%</td><td class="numeric">0.64</td></tr>
+    <tr><td>D — Sentiment &amp; Positioning</td><td class="score score-orange">2.00</td><td>12%</td><td class="numeric">0.24</td></tr>
+    <tr><td>E — Macro Cycle &amp; Credit</td><td class="score score-green">2.40</td><td>8%</td><td class="numeric">0.19</td></tr>
+    <tr style="border-top:2px solid #1a3a5c"><td><strong>Total</strong></td><td>—</td><td>100%</td><td class="numeric"><strong>2.26 → 2.3</strong></td></tr>
+  </table>
+</div>
+
+<div class="warning-box">
+  <div class="warning-title">⚠ Key Risks &amp; Divergences</div>
+  <ul>
+    <li><strong>CAPE at 41x</strong> — Third-highest reading in history (behind 2021 and 2000). Mean reversion risk is extreme.</li>
+    <li><strong>Buffett Indicator at 201%</strong> — Market cap nearly double US GDP. Only 2021 was higher.</li>
+    <li><strong>Record margin debt</strong> — Investors are levered to the gills. A 10% correction would trigger forced selling.</li>
+    <li><strong>Put/Call complacency</strong> — At 0.46, puts are being sold into strength. No hedges = no safety net.</li>
+    <li><strong>P/S at 3.6x</strong> — Even 2000 dot-com peak was "only" ~2.5x. This is uncharted territory.</li>
+  </ul>
+</div>
+
+<div class="key-box">
+  <div class="key-title">Bullish Factors (Preventing Lower Score)</div>
+  <ul>
+    <li><strong>Breadth is strong</strong> — NH/NL 8.3:1, A/D line positive. This isn't a "7 stocks carrying the market" setup.</li>
+    <li><strong>Credit spreads tight</strong> — HY at 2.83%. Bond market sees no recession, no default wave.</li>
+    <li><strong>Yield curve re-steepened</strong> — +51bps removes the 2025 recession signal. "Higher for longer" is manageable.</li>
+    <li><strong>Earnings growth</strong> — 2026 EPS consensus ~$306 (+14% YoY). AI capex ($400B from hyperscalers) is real revenue.</li>
+    <li><strong>Fed posture</strong> — Market pricing 2-3 cuts in H2 2026. "Dovish pivot" narrative alive.</li>
+  </ul>
+</div>
+
+<hr class="section">
+
+<div class="return-box">
+  <strong>Tactical Assessment</strong><br>
+  Base Case (60%): Grind higher 7000–7500, shallow corrections | Bear Case (25%): 15–20% correction if AI earnings miss | Bull Case (15%): S&amp;P 500 to 8000+<br>
+  <strong>Action Bias: Reduce / Hedge (1–3 months) | Caution (3–6 months) | Defensive positioning (6–12 months)</strong>
+</div>
+
+<div class="footer">
+  WCVS Report | Generated May 3, 2026 | OpenClaw Multi-Agent System | Not financial advice
+</div>
+
+</body>
+</html>

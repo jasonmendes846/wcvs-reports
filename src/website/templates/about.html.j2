@@ -1,0 +1,66 @@
+{% extends "base.html.j2" %}
+{% block title %}About — WCVS Methodology{% endblock %}
+{% block content %}
+<section class="about-section">
+  <h1>About WCVS</h1>
+  <p class="lead">The <strong>Weighted Composite Valuation Score (WCVS)</strong> is a multi-factor snapshot of U.S. equity market valuation. It synthesizes five independent dimensions into a single 1.0–5.0 score and a forward return expectation based on CAPE regression.</p>
+
+  <h2>Methodology</h2>
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-name">Fundamental Valuation</div>
+      <div class="method-weight">25%</div>
+      <p>CAPE, forward P/E, market cap/GDP, price/10Y MA</p>
+    </div>
+    <div class="method-card">
+      <div class="method-name">Market Internals</div>
+      <div class="method-weight">20%</div>
+      <p>Breadth, advance-decline, new highs/lows</p>
+    </div>
+    <div class="method-card">
+      <div class="method-name">Sentiment</div>
+      <div class="method-weight">20%</div>
+      <p>Fear & Greed, NAAIM, AAII, put/call</p>
+    </div>
+    <div class="method-card">
+      <div class="method-name">Credit & Liquidity</div>
+      <div class="method-weight">15%</div>
+      <p>Yield curve, credit spreads, real rates</p>
+    </div>
+    <div class="method-card">
+      <div class="method-name">Macro & Cross-Asset</div>
+      <div class="method-weight">20%</div>
+      <p>Dollar, oil, gold, Fed policy, inflation</p>
+    </div>
+  </div>
+
+  <h2>Score Interpretation</h2>
+  <table class="scale-table">
+    <thead>
+      <tr><th>Score</th><th>Rating</th><th>Implication</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1.0 – 1.9</td><td><span class="rating-pill rating-red">Severely Overvalued</span></td><td>Extreme risk, capital preservation priority</td></tr>
+      <tr><td>2.0 – 3.0</td><td><span class="rating-pill rating-orange">Overvalued</span></td><td>Elevated risk, reduce beta</td></tr>
+      <tr><td>3.1 – 4.0</td><td><span class="rating-pill rating-green">Fairly Valued</span></td><td>Balanced risk/reward</td></tr>
+      <tr><td>4.1 – 5.0</td><td><span class="rating-pill rating-green">Undervalued</span></td><td>Favorable asymmetry, accumulate</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Data Sources</h2>
+  <ul>
+    <li>S&P 500, Treasury yields, DXY, oil, gold — Yahoo Finance / WSJ</li>
+    <li>Shiller CAPE — multpl.com / Robert Shiller database</li>
+    <li>Fear & Greed — CNN Business</li>
+    <li>NAAIM — National Association of Active Investment Managers</li>
+    <li>AAII — American Association of Individual Investors</li>
+    <li>Put/Call Ratio — CBOE</li>
+    <li>Credit Spreads — FRED / ICE BofA</li>
+  </ul>
+
+  <h2>Disclaimer</h2>
+  <div class="disclaimer-box">
+    <p>This report is for <strong>informational purposes only</strong> and does not constitute investment advice, an offer to sell, or a solicitation of an offer to buy any securities. The WCVS score is a heuristic model based on historical relationships that may not persist. Past performance is not indicative of future results. The authors assume no liability for any investment decisions made based on this report.</p>
+  </div>
+</section>
+{% endblock %}

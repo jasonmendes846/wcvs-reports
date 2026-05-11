@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project outputs (keep for local use, but not in source repo)
+# Uncomment the next line if you want to exclude outputs from git:
+# outputs/
+
+# Logs
+outputs/logs/
